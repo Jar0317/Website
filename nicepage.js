@@ -39,9 +39,9 @@
     }
     ,
     e.p = "/Content/BundledScripts/",
-    e(e.s = 15383)
+    e(e.s = 15440)
 }({
-    1138: function(t, e, n) {
+    1145: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.setFirstWeekDay = function t(e) {
@@ -437,7 +437,7 @@
                 if (t + e > length)
                     throw new RangeError("Trying to access beyond buffer length")
             }
-            function z(t, e, n, i, a, o) {
+            function $(t, e, n, i, a, o) {
                 if (!s.isBuffer(t))
                     throw new TypeError('"buffer" argument must be a Buffer instance');
                 if (e > a || e < o)
@@ -445,7 +445,7 @@
                 if (n + i > t.length)
                     throw new RangeError("Index out of range")
             }
-            function $(t, e, n, i) {
+            function z(t, e, n, i) {
                 e < 0 && (e = 65535 + e + 1);
                 for (var a = 0, o = Math.min(t.length - n, 2); a < o; ++a)
                     t[n + a] = (e & 255 << 8 * (i ? a : 1 - a)) >>> 8 * (i ? a : 1 - a)
@@ -556,9 +556,9 @@
             function rt(t) {
                 return t != t
             }
-            var at = n(719)
-              , ot = n(720)
-              , st = n(721);
+            var at = n(722)
+              , ot = n(723)
+              , st = n(724);
             e.Buffer = s,
             e.SlowBuffer = y,
             e.INSPECT_MAX_BYTES = 50,
@@ -929,7 +929,7 @@
                 (e = +e,
                 n |= 0,
                 i |= 0,
-                a) || z(this, e, n, i, Math.pow(2, 8 * i) - 1, 0);
+                a) || $(this, e, n, i, Math.pow(2, 8 * i) - 1, 0);
                 var s = 1
                   , u = 0;
                 for (this[n] = 255 & e; ++u < i && (s *= 256); )
@@ -942,7 +942,7 @@
                 (e = +e,
                 n |= 0,
                 i |= 0,
-                a) || z(this, e, n, i, Math.pow(2, 8 * i) - 1, 0);
+                a) || $(this, e, n, i, Math.pow(2, 8 * i) - 1, 0);
                 var s = i - 1
                   , u = 1;
                 for (this[n + s] = 255 & e; --s >= 0 && (u *= 256); )
@@ -953,7 +953,7 @@
             s.prototype.writeUInt8 = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 1, 255, 0),
+                i || $(this, e, n, 1, 255, 0),
                 s.TYPED_ARRAY_SUPPORT || (e = Math.floor(e)),
                 this[n] = 255 & e,
                 n + 1
@@ -962,25 +962,25 @@
             s.prototype.writeUInt16LE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 2, 65535, 0),
+                i || $(this, e, n, 2, 65535, 0),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = 255 & e,
-                this[n + 1] = e >>> 8) : $(this, e, n, true),
+                this[n + 1] = e >>> 8) : z(this, e, n, true),
                 n + 2
             }
             ,
             s.prototype.writeUInt16BE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 2, 65535, 0),
+                i || $(this, e, n, 2, 65535, 0),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = e >>> 8,
-                this[n + 1] = 255 & e) : $(this, e, n, false),
+                this[n + 1] = 255 & e) : z(this, e, n, false),
                 n + 2
             }
             ,
             s.prototype.writeUInt32LE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 4, 4294967295, 0),
+                i || $(this, e, n, 4, 4294967295, 0),
                 s.TYPED_ARRAY_SUPPORT ? (this[n + 3] = e >>> 24,
                 this[n + 2] = e >>> 16,
                 this[n + 1] = e >>> 8,
@@ -991,7 +991,7 @@
             s.prototype.writeUInt32BE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 4, 4294967295, 0),
+                i || $(this, e, n, 4, 4294967295, 0),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = e >>> 24,
                 this[n + 1] = e >>> 16,
                 this[n + 2] = e >>> 8,
@@ -1004,7 +1004,7 @@
                 n |= 0,
                 !a) {
                     var o = Math.pow(2, 8 * i - 1);
-                    z(this, e, n, i, o - 1, -o)
+                    $(this, e, n, i, o - 1, -o)
                 }
                 var s = 0
                   , u = 1
@@ -1020,7 +1020,7 @@
                 n |= 0,
                 !a) {
                     var o = Math.pow(2, 8 * i - 1);
-                    z(this, e, n, i, o - 1, -o)
+                    $(this, e, n, i, o - 1, -o)
                 }
                 var s = i - 1
                   , u = 1
@@ -1034,7 +1034,7 @@
             s.prototype.writeInt8 = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 1, 127, -128),
+                i || $(this, e, n, 1, 127, -128),
                 s.TYPED_ARRAY_SUPPORT || (e = Math.floor(e)),
                 e < 0 && (e = 255 + e + 1),
                 this[n] = 255 & e,
@@ -1044,25 +1044,25 @@
             s.prototype.writeInt16LE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 2, 32767, -32768),
+                i || $(this, e, n, 2, 32767, -32768),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = 255 & e,
-                this[n + 1] = e >>> 8) : $(this, e, n, true),
+                this[n + 1] = e >>> 8) : z(this, e, n, true),
                 n + 2
             }
             ,
             s.prototype.writeInt16BE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 2, 32767, -32768),
+                i || $(this, e, n, 2, 32767, -32768),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = e >>> 8,
-                this[n + 1] = 255 & e) : $(this, e, n, false),
+                this[n + 1] = 255 & e) : z(this, e, n, false),
                 n + 2
             }
             ,
             s.prototype.writeInt32LE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 4, 2147483647, -2147483648),
+                i || $(this, e, n, 4, 2147483647, -2147483648),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = 255 & e,
                 this[n + 1] = e >>> 8,
                 this[n + 2] = e >>> 16,
@@ -1073,7 +1073,7 @@
             s.prototype.writeInt32BE = function t(e, n, i) {
                 return e = +e,
                 n |= 0,
-                i || z(this, e, n, 4, 2147483647, -2147483648),
+                i || $(this, e, n, 4, 2147483647, -2147483648),
                 e < 0 && (e = 4294967295 + e + 1),
                 s.TYPED_ARRAY_SUPPORT ? (this[n] = e >>> 24,
                 this[n + 1] = e >>> 16,
@@ -1168,9 +1168,9 @@
         }
         ).call(e, n(89))
     },
-    1220: function(t, e, n) {
+    1227: function(t, e, n) {
         "use strict";
-        var i = n(1221)
+        var i = n(1228)
           , bootstrap = {};
         bootstrap.Util = function(t) {
             function e(t) {
@@ -1377,8 +1377,8 @@
               , F = "pointerdown" + m
               , N = "pointerup" + m
               , U = "dragstart" + m
-              , z = "load" + m + g
-              , $ = "click" + m + g
+              , $ = "load" + m + g
+              , z = "click" + m + g
               , H = "u-carousel"
               , Y = "u-active"
               , W = "u-slide"
@@ -1724,8 +1724,8 @@
                 }]),
                 Carousel
             }();
-            return u.default(document).on($, ot, Carousel._dataApiClickHandler),
-            u.default(window).on(z, (function() {
+            return u.default(document).on(z, ot, Carousel._dataApiClickHandler),
+            u.default(window).on($, (function() {
                 for (var t = [].slice.call(document.querySelectorAll(st)), e = 0, n = t.length; e < n; e++) {
                     var i = u.default(t[e]);
                     Carousel._jQueryInterface.call(i, i.data())
@@ -1742,7 +1742,7 @@
             Carousel
         }($, bootstrap.Util)
     },
-    1221: function(t, e, n) {
+    1228: function(t, e, n) {
         "use strict";
         function i(t) {
             this.$element = a(t),
@@ -1848,7 +1848,7 @@
             ))
         }
     },
-    1235: function(t, e, n) {
+    1242: function(t, e, n) {
         "use strict";
         function i(t) {
             var data = t.attr("data-map");
@@ -1878,7 +1878,7 @@
         Object.defineProperty(e, "__esModule", {
             value: true
         });
-        var o = n(268)
+        var o = n(271)
           , MapsLoader = {};
         window.loadMapsContent = function() {
             $("iframe.map-content").each((function() {
@@ -1928,7 +1928,7 @@
         ,
         window.MapsLoader = MapsLoader
     },
-    1236: function(t, e, n) {
+    1243: function(t, e, n) {
         "use strict";
         function ResponsiveMenu(t, e) {
             this.responsive = t,
@@ -2221,7 +2221,7 @@
         ,
         window.ResponsiveMenu = ResponsiveMenu
     },
-    1259: function(t, e, n) {
+    1268: function(t, e, n) {
         "use strict";
         var FormMessage = t.exports = {}
           , i = n(29);
@@ -2258,7 +2258,7 @@
             form.find('input[type="submit"]').prop("disabled", false)
         }
     },
-    1260: function(t, e, n) {
+    1269: function(t, e, n) {
         "use strict";
         var i = n(29), ProductBadge;
         t.exports.update = function update(t) {
@@ -2270,7 +2270,7 @@
             ))
         }
     },
-    1261: function(t, e, n) {
+    1270: function(t, e, n) {
         "use strict";
         t.exports = {
             options: {
@@ -2278,12 +2278,12 @@
             }
         }
     },
-    1262: function(t, e, n) {
+    1271: function(t, e, n) {
         "use strict";
         function i() {
             this.$cart = $(".u-shopping-cart-icon").parent('.u-shopping-cart[href^="#"]')
         }
-        var a = n(15465);
+        var a = n(15523);
         t.exports = i;
         var cart = null;
         i.getCart = function() {
@@ -2385,7 +2385,7 @@
         ,
         window.PaymentCart = i
     },
-    1263: function(t, e, n) {
+    1272: function(t, e, n) {
         "use strict";
         class i {
             constructor(t, e, data) {
@@ -2435,73 +2435,73 @@
         }
         e.a = i
     },
-    15383: function(t, e, n) {
+    15440: function(t, e, n) {
         "use strict";
-        n(15384),
-        n(15491)
+        n(15441),
+        n(15549)
     },
-    15384: function(t, e, n) {
+    15441: function(t, e, n) {
         "use strict";
-        n(15385)
+        n(15442)
     },
-    15385: function(t, e, n) {
+    15442: function(t, e, n) {
         "use strict";
-        n(15386),
-        n(15387),
-        n(683),
-        n(15388),
-        n(15389),
-        n(15391),
-        n(15392),
-        n(15394),
-        n(15395),
-        n(1220),
-        n(1235),
-        n(15396),
-        n(15404),
-        n(15405),
-        n(15407),
-        n(15409),
-        n(15410),
-        n(15411),
-        n(15412),
-        n(382),
-        n(15413),
-        n(15422),
-        n(15423),
-        n(15424),
-        n(15425),
-        n(15427),
-        n(15431),
-        n(15432),
-        n(15434),
-        n(15435),
-        n(15436),
-        n(15437),
-        n(1260),
-        n(15438),
-        n(15439),
+        n(15443),
         n(15444),
+        n(685),
         n(15445),
         n(15446),
-        n(15447),
         n(15448),
-        n(15450),
+        n(15449),
         n(15451),
         n(15452),
+        n(1227),
+        n(1242),
         n(15453),
-        n(15454),
-        n(15456),
-        n(15458),
-        n(15459),
+        n(15461),
+        n(15462),
+        n(15464),
+        n(15466),
+        n(15467),
         n(15468),
         n(15469),
+        n(385),
         n(15470),
-        n(15476),
+        n(15479),
+        n(15480),
+        n(15481),
         n(15482),
-        n(15486)
+        n(15484),
+        n(15488),
+        n(15489),
+        n(15491),
+        n(15492),
+        n(15493),
+        n(15494),
+        n(1269),
+        n(15495),
+        n(15496),
+        n(15501),
+        n(15502),
+        n(15503),
+        n(15504),
+        n(15505),
+        n(15507),
+        n(15508),
+        n(15510),
+        n(15511),
+        n(15512),
+        n(15514),
+        n(15516),
+        n(15517),
+        n(15526),
+        n(15527),
+        n(15528),
+        n(15534),
+        n(15540),
+        n(15544)
     },
-    15386: function(t, e, n) {
+    15443: function(t, e, n) {
         "use strict";
         function i() {
             if (window && document && "complete" !== document.readyState) {
@@ -2521,7 +2521,7 @@
         }
         i()
     },
-    15387: function(t, e, n) {
+    15444: function(t, e, n) {
         "use strict";
         "CSS"in window || (window.CSS = {}),
         "supports"in window.CSS || ("use strict",
@@ -2560,7 +2560,7 @@
         }
         )
     },
-    15388: function(t, e, n) {
+    15445: function(t, e, n) {
         "use strict";
         function i(t) {
             this.prevMode = "",
@@ -2593,7 +2593,7 @@
             ), this),
             this.init(t || [])
         }
-        var ResponsiveMenu = n(1236)
+        var ResponsiveMenu = n(1243)
           , a = n(29);
         Object.defineProperty(i.prototype, "mode", {
             get: function() {
@@ -2705,7 +2705,7 @@
         }
         ))
     },
-    15389: function(t, e, n) {
+    15446: function(t, e, n) {
         "use strict";
         function i() {
             return {
@@ -2924,11 +2924,11 @@
             t.length && t.prop("disabled", true)
         }
         var g = n(29)
-          , Dialog = n(304)
-          , v = n(15390)
-          , FormMessage = n(1259)
-          , Const = n(340)
-          , y = n(4689);
+          , Dialog = n(307)
+          , v = n(15447)
+          , FormMessage = n(1268)
+          , Const = n(342)
+          , y = n(4715);
         g((function() {
             var form = new i;
             window.serviceRequest = p,
@@ -2938,7 +2938,7 @@
         )),
         window.MailChimpForm = i
     },
-    15390: function(t, e, n) {
+    15447: function(t, e, n) {
         "use strict";
         function i(t) {
             var e = JSON.parse(t.getAttribute("data-canvas-default-options") || "{}");
@@ -2989,10 +2989,10 @@
             ))
         }
     },
-    15391: function(t, e, n) {
+    15448: function(t, e, n) {
         "use strict";
-        var i = n(897).evaluate
-          , a = n(898);
+        var i = n(901).evaluate
+          , a = n(902);
         $((function() {
             function t(t) {
                 var form;
@@ -3020,7 +3020,7 @@
         }
         ))
     },
-    15392: function(t, e, n) {
+    15449: function(t, e, n) {
         "use strict";
         function i() {
             $(".u-form input[type=file]").change((function() {
@@ -3100,17 +3100,16 @@
                 if (formServices) {
                     var e = v(input.files);
                     e.length && (e.forEach((function(file, e) {
-                        var n = file.name
-                          , i = t.clone();
-                        i.removeClass("u-file-template");
-                        var fileName = i.find(".u-file-name");
-                        fileName.text(n),
+                        var n = t.clone();
+                        n.removeClass("u-file-template");
+                        var fileName = n.find(".u-file-name");
+                        fileName.text(file.fileName),
                         fileName.append('<span class="u-file-error-tooltip-text">There was an error uploading the file, please try again!</span>');
-                        var a = i.find(".u-file-remove");
-                        a.hide(),
-                        a.before('<span class="' + a.attr("class").replace("remove", "spinner") + '"/>'),
-                        i.attr("data-i", e),
-                        form.find(".u-file-list").append(i),
+                        var i = n.find(".u-file-remove");
+                        i.hide(),
+                        i.before('<span class="' + i.attr("class").replace("remove", "spinner") + '"/>'),
+                        n.attr("data-i", e),
+                        form.find(".u-file-list").append(n),
                         g(form, true)
                     }
                     )),
@@ -3234,10 +3233,10 @@
             var e = form.find(".u-btn-submit");
             t ? e.addClass("disabled") : e.removeClass("disabled")
         }
-        var FormFileAccept = n(901)
-          , FormMessage = n(1259)
-          , Const = n(340)
-          , v = n(15393)
+        var FormFileAccept = n(905)
+          , FormMessage = n(1268)
+          , Const = n(342)
+          , v = n(15450)
           , y = 10485760
           , w = 10;
         $((function() {
@@ -3249,7 +3248,7 @@
         }
         ))
     },
-    15393: function(t, e, n) {
+    15450: function(t, e, n) {
         "use strict";
         function i(t) {
             var e = [];
@@ -3266,7 +3265,7 @@
         }
         t.exports = i
     },
-    15394: function(t, e, n) {
+    15451: function(t, e, n) {
         "use strict";
         function i(el) {
             var video;
@@ -3332,7 +3331,7 @@
         }
         ))
     },
-    15395: function(t, e, n) {
+    15452: function(t, e, n) {
         "use strict";
         function i(t) {
             this._audioElement = t.querySelector("audio"),
@@ -3433,16 +3432,16 @@
         }
         ))
     },
-    15396: function(t, e, n) {
+    15453: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(15397);
+          , a = n(15454);
         i((function() {
             (new a).init()
         }
         ))
     },
-    15397: function(t, e, n) {
+    15454: function(t, e, n) {
         "use strict";
         function i() {
             this.galleries = null,
@@ -3474,13 +3473,13 @@
             }
             ))
         }
-        var Utils = n(15398)
-          , o = n(15399)
-          , s = n(15400)
-          , u = n(15401)
+        var Utils = n(15455)
+          , o = n(15456)
+          , s = n(15457)
+          , u = n(15458)
           , l = n(29)
-          , c = n(15402)
-          , f = n(15403);
+          , c = n(15459)
+          , f = n(15460);
         t.exports = i,
         Object.defineProperty(i.prototype, "pswpElement", {
             get: function() {
@@ -3630,7 +3629,7 @@
         ,
         window.Lightbox = i
     },
-    15398: function(t, e, n) {
+    15455: function(t, e, n) {
         "use strict";
         var Utils;
         (t.exports = {}).parseHash = function t() {
@@ -3647,7 +3646,7 @@
             e
         }
     },
-    15399: function(t, e, n) {
+    15456: function(t, e, n) {
         "use strict";
         function i(t) {
             return new Promise((function(e, n) {
@@ -3717,14 +3716,14 @@
             Promise.all(n).then(t.bind(e), console.log)
         }
     },
-    15400: function(t, e, n) {
+    15457: function(t, e, n) {
         "use strict";
         var i = t.exports = {};
         i.LIGHTBOX_SELECTOR = ".u-lightbox",
         i.GALLERY_ITEM_SELECTOR = [".u-image:not(.u-carousel-thumbnail-image):not(.u-background-effect-image)", ".u-gallery-item", ".u-background-effect ~ .u-container-layout"].join(", "),
         i.PSWP_TEMPLATE = '<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">\n  <div class="pswp__bg"></div>\n  <div class="pswp__scroll-wrap">\n    <div class="pswp__container">\n     <div class="pswp__item"></div>\n     <div class="pswp__item"></div>\n      <div class="pswp__item"></div>\n    </div>\n    <div class="pswp__ui pswp__ui--hidden">\n      <div class="pswp__top-bar">\n        <div class="pswp__counter"></div>\n        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>\n        <button class="pswp__button pswp__button--share" title="Share"></button>\n        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>\n        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>\n        <div class="pswp__preloader">\n          <div class="pswp__preloader__icn">\n            <div class="pswp__preloader__cut">\n              <div class="pswp__preloader__donut"></div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">\n        <div class="pswp__share-tooltip"></div>\n      </div>\n      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>\n      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>\n      <div class="pswp__previews" data-previews="data-previews" style="display: none"></div>      <div class="pswp__caption">\n        <div class="pswp__caption__center"></div>\n      </div>\n    </div>\n  </div>\n</div>'
     },
-    15401: function(t, e, n) {
+    15458: function(t, e, n) {
         "use strict";
         function i(gallery, selector) {
             var t = gallery.scrollWrap, e = t.querySelector(selector), n;
@@ -3786,7 +3785,7 @@
             ))
         }
     },
-    15402: function(t, e, n) {
+    15459: function(t, e, n) {
         "use strict";
         /*! PhotoSwipe - v4.1.3 - 2019-01-08
 * http://photoswipe.com
@@ -3984,7 +3983,7 @@
                 }, w, b, C, S = {}, x, _, A, T, E, k, I = 0, M = {}, P = {
                     x: 0,
                     y: 0
-                }, L, O, B = 0, F, N, U, z, $, H, Y = true, W, V = [], j, G, K, Z, X, J, tt, nt = {}, rt = false, at, ot = function(t, e) {
+                }, L, O, B = 0, F, N, U, $, z, H, Y = true, W, V = [], j, G, K, Z, X, J, tt, nt = {}, rt = false, at, ot = function(t, e) {
                     n.extend(i, e.publicMethods),
                     V.push(t)
                 }, st = function(index) {
@@ -4008,7 +4007,7 @@
                     i.bg.style.opacity = t * s.bgOpacity
                 }, ht = function(t, e, n, a, o) {
                     (!rt || o && o !== i.currItem) && (a /= o ? o.fitRatio : i.currItem.fitRatio),
-                    t[$] = A + e + "px, " + n + "px" + T + " scale(" + a + ")"
+                    t[z] = A + e + "px, " + n + "px" + T + " scale(" + a + ")"
                 }, pt = function(t) {
                     xe && (t && (x > i.currItem.fitRatio ? rt || (En(i.currItem, false, true),
                     rt = true) : rt && (En(i.currItem),
@@ -4017,7 +4016,7 @@
                 }, mt = function(t) {
                     t.container && ht(t.container.style, t.initialPosition.x, t.initialPosition.y, t.initialZoomLevel, t)
                 }, gt = function(t, e) {
-                    e[$] = A + t + "px, 0px" + T
+                    e[z] = A + t + "px, 0px" + T
                 }, vt = function(t, e) {
                     if (!s.loop && e) {
                         var n = h + (P.x * I - t) / P.x
@@ -4077,13 +4076,13 @@
                     true) : n[t] < e.max[t] && (n[t] = e.max[t],
                     true))
                 }, Mt = function() {
-                    if ($) {
+                    if (z) {
                         var t = tt.perspective && !W;
                         return A = "translate" + (t ? "3d(" : "("),
                         T = tt.perspective ? ", 0px)" : ")",
                         void 0
                     }
-                    $ = "left",
+                    z = "left",
                     n.addClass(template, "pswp--ie"),
                     gt = function(t, e) {
                         e.left = t + "px"
@@ -4149,7 +4148,7 @@
                         }
                     };
                     l()
-                }, zt = {
+                }, $t = {
                     shout: ct,
                     listen: lt,
                     viewportSize: S,
@@ -4191,7 +4190,7 @@
                             tt = n.detectFeatures(),
                             j = tt.raf,
                             G = tt.caf,
-                            $ = tt.transform,
+                            z = tt.transform,
                             X = tt.oldIE,
                             i.scrollWrap = n.getChildByClass(template, "pswp__scroll-wrap"),
                             i.container = n.getChildByClass(i.scrollWrap, "pswp__container"),
@@ -4431,7 +4430,7 @@
                         };
                         i ? qt("customZoomTo", 0, 1, i, a || n.easing.sine.inOut, h) : h(1)
                     }
-                }, $t = 30, Ht = 10, Yt, Wt, Vt = {}, jt = {}, Gt = {}, Kt = {}, Zt = {}, Xt = [], Jt = {}, Qt, te = [], ee = {}, ne, ie, re, ae = 0, oe = {
+                }, zt = 30, Ht = 10, Yt, Wt, Vt = {}, jt = {}, Gt = {}, Kt = {}, Zt = {}, Xt = [], Jt = {}, Qt, te = [], ee = {}, ne, ie, re, ae = 0, oe = {
                     x: 0,
                     y: 0
                 }, se = 0, ue, le, ce, fe, pe, ge, ve, ye, we, be, Ce, Se = {
@@ -4461,10 +4460,10 @@
                     return !("fit" === s.scaleMode && x === i.currItem.initialZoomLevel)
                 }, qe = function(el, t) {
                     return !(!el || el === document) && !(el.getAttribute("class") && el.getAttribute("class").indexOf("pswp__scroll-wrap") > -1) && (t(el) ? el : qe(el.parentNode, t))
-                }, ze = {}, $e = function(t, e) {
-                    return ze.prevent = !qe(t.target, s.isClickableElement),
-                    ct("preventDragEvent", t, e, ze),
-                    ze.prevent
+                }, $e = {}, ze = function(t, e) {
+                    return $e.prevent = !qe(t.target, s.isClickableElement),
+                    ct("preventDragEvent", t, e, $e),
+                    $e.prevent
                 }, Ye = function(t, e) {
                     return e.x = t.pageX,
                     e.y = t.pageY,
@@ -4523,7 +4522,7 @@
                             return t.preventDefault(),
                             void 0;
                         if (!re || "mousedown" !== t.type) {
-                            if ($e(t, true) && t.preventDefault(),
+                            if (ze(t, true) && t.preventDefault(),
                             ct("pointerDown"),
                             H) {
                                 var e = n.arraySearch(Xt, t.pointerId, "id");
@@ -4676,7 +4675,7 @@
                     }
                     var e;
                     if (ct("pointerUp"),
-                    $e(t, false) && t.preventDefault(),
+                    ze(t, false) && t.preventDefault(),
                     H) {
                         var a = n.arraySearch(Xt, t.pointerId, "id");
                         if (a > -1)
@@ -4830,7 +4829,7 @@
                     "swipe" === t) {
                         var l = Kt.x - Zt.x
                           , c = e.lastFlickDist.x < 10;
-                        l > $t && (c || e.lastFlickOffset.x > 20) ? o = -1 : l < -30 && (c || e.lastFlickOffset.x < -20) && (o = 1)
+                        l > zt && (c || e.lastFlickOffset.x > 20) ? o = -1 : l < -30 && (c || e.lastFlickOffset.x < -20) && (o = 1)
                     }
                     o && ((h += o) < 0 ? (h = s.loop ? wn() - 1 : 0,
                     u = true) : h >= wn() && (h = s.loop ? 0 : wn() - 1,
@@ -4878,19 +4877,19 @@
                                 F = t + e,
                                 N = t + move,
                                 U = t + n,
-                                z = i ? t + i : ""
+                                $ = i ? t + i : ""
                             };
                             (H = tt.pointerEvent) && tt.touch && (tt.touch = false),
                             H ? navigator.msPointerEnabled ? t("MSPointer", "Down", "Move", "Up", "Cancel") : t("pointer", "down", "move", "up", "cancel") : tt.touch ? (t("touch", "start", "move", "end", "cancel"),
                             W = true) : t("mouse", "down", "move", "up"),
-                            w = N + " " + U + " " + z,
+                            w = N + " " + U + " " + $,
                             b = F,
                             H && !W && (W = navigator.maxTouchPoints > 1 || navigator.msMaxTouchPoints > 1),
                             i.likelyTouchDevice = W,
                             C[F] = tn,
                             C[N] = en,
                             C[U] = rn,
-                            z && (C[z] = C[U]),
+                            $ && (C[$] = C[U]),
                             tt.touch && (b += " mousedown",
                             w += " mousemove mouseup",
                             C.mousedown = C[F],
@@ -5323,7 +5322,7 @@
                         },
                         handleMouseWheel: function(t) {
                             if (x <= i.currItem.fitRatio)
-                                return s.modal && (!s.closeOnScroll || Ft || ue ? t.preventDefault() : $ && Math.abs(t.deltaY) > 2 && (f = true,
+                                return s.modal && (!s.closeOnScroll || Ft || ue ? t.preventDefault() : z && Math.abs(t.deltaY) > 2 && (f = true,
                                 i.close())),
                                 true;
                             if (t.stopPropagation(),
@@ -5362,7 +5361,7 @@
                 var Ln = {
                     history: true,
                     galleryUID: 1
-                }, On, Bn, Fn, Rn, Nn, Un, qn, zn, $n, Hn, Yn, Wn, Vn = function() {
+                }, On, Bn, Fn, Rn, Nn, Un, qn, $n, zn, Hn, Yn, Wn, Vn = function() {
                     return Yn.hash.substring(1)
                 }, jn = function() {
                     On && clearTimeout(On),
@@ -5400,10 +5399,10 @@
                       , e = yn(h);
                     e.hasOwnProperty("pid") && (t = e.pid);
                     var n = qn + "&gid=" + s.galleryUID + "&pid=" + t;
-                    zn || -1 === Yn.hash.indexOf(n) && (Hn = true);
+                    $n || -1 === Yn.hash.indexOf(n) && (Hn = true);
                     var i = Yn.href.split("#")[0] + "#" + n;
-                    Wn ? "#" + n !== window.location.hash && history[zn ? "replaceState" : "pushState"]("", document.title, i) : zn ? Yn.replace(i) : Yn.hash = n,
-                    zn = true,
+                    Wn ? "#" + n !== window.location.hash && history[$n ? "replaceState" : "pushState"]("", document.title, i) : $n ? Yn.replace(i) : Yn.hash = n,
+                    $n = true,
                     Bn = setTimeout((function() {
                         Rn = false
                     }
@@ -5416,8 +5415,8 @@
                             s.history) {
                                 Yn = window.location,
                                 Hn = false,
-                                $n = false,
                                 zn = false,
+                                $n = false,
                                 qn = Vn(),
                                 Wn = "pushState"in history,
                                 qn.indexOf("gid=") > -1 && (qn = (qn = qn.split("&gid=")[0]).split("?gid=")[0]),
@@ -5428,7 +5427,7 @@
                                 ));
                                 var t = function() {
                                     Un = true,
-                                    $n || (Hn ? history.back() : qn ? Yn.hash = qn : Wn ? history.pushState("", document.title, Yn.pathname + Yn.search) : Yn.hash = ""),
+                                    zn || (Hn ? history.back() : qn ? Yn.hash = qn : Wn ? history.pushState("", document.title, Yn.pathname + Yn.search) : Yn.hash = ""),
                                     jn()
                                 };
                                 lt("unbindEvents", (function() {
@@ -5453,7 +5452,7 @@
                         },
                         onHashChange: function() {
                             if (Vn() === qn)
-                                return $n = true,
+                                return zn = true,
                                 i.close(),
                                 void 0;
                             Rn || (Nn = true,
@@ -5462,11 +5461,11 @@
                         },
                         updateURL: function() {
                             jn(),
-                            Nn || (zn ? On = setTimeout(Kn, 800) : Kn())
+                            Nn || ($n ? On = setTimeout(Kn, 800) : Kn())
                         }
                     }
                 }),
-                n.extend(i, zt)
+                n.extend(i, $t)
             };
             return t
         }
@@ -5474,7 +5473,7 @@
         void ("function" == typeof define && define.amd ? define(factory) : (true,
         t.exports = factory()))
     },
-    15403: function(t, e, n) {
+    15460: function(t, e, n) {
         "use strict";
         /*! PhotoSwipe Default UI - 4.1.3 - 2019-01-08
 * http://photoswipe.com
@@ -5601,14 +5600,14 @@
                     clearTimeout(F),
                     N = 0,
                     m && ui.setIdle(false)
-                }, z = function(t) {
+                }, $ = function(t) {
                     var e = (t = t || window.event).relatedTarget || t.toElement;
                     e && "HTML" !== e.nodeName || (clearTimeout(F),
                     F = setTimeout((function() {
                         ui.setIdle(true)
                     }
                     ), C.timeToIdleOutside))
-                }, $ = function() {
+                }, z = function() {
                     C.fullscreenEl && !e.features.isOldAndroid && (a || (a = ui.getFullscreenAPI()),
                     a ? (e.bind(document, a.eventK, ui.updateFullscreen),
                     ui.updateFullscreen(),
@@ -5651,7 +5650,7 @@
                 }, V = function() {
                     C.timeToIdle && g("mouseUsed", (function() {
                         e.bind(document, "mousemove", U),
-                        e.bind(document, "mouseout", z),
+                        e.bind(document, "mouseout", $),
                         B = setInterval((function() {
                             2 == ++N && ui.setIdle(true)
                         }
@@ -5773,7 +5772,7 @@
                     g("unbindEvents", (function() {
                         h || M(),
                         B && clearInterval(B),
-                        e.unbind(document, "mouseout", z),
+                        e.unbind(document, "mouseout", $),
                         e.unbind(document, "mousemove", U),
                         e.unbind(o, "pswpTap click", A),
                         e.unbind(t.scrollWrap, "pswpTap", ui.onGlobalTap),
@@ -5807,7 +5806,7 @@
                     C.shareEl && c && f && (h = true),
                     k(),
                     V(),
-                    $(),
+                    z(),
                     H()
                 }
                 ,
@@ -5920,16 +5919,16 @@
         void ("function" == typeof define && define.amd ? define(factory) : (true,
         t.exports = factory()))
     },
-    15404: function(t, e, n) {
+    15461: function(t, e, n) {
         "use strict";
         var i;
         n(29)(window.loadMapsContent)
     },
-    15405: function(t, e, n) {
+    15462: function(t, e, n) {
         "use strict";
-        n(15406);
+        n(15463);
         var i = n(29), Utils;
-        n(472).animationsEnabled() && i(window).on("load", (function() {
+        n(477).animationsEnabled() && i(window).on("load", (function() {
             var t;
             if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || navigator.vendor || window.opera)) {
                 var items = i(".u-parallax");
@@ -5951,7 +5950,7 @@
         }
         ))
     },
-    15406: function(t, e) {
+    15463: function(t, e) {
         var e = void 0
           , t = void 0;
         (function() {
@@ -6017,7 +6016,7 @@
                         return Mt || new a(t)
                     },
                     VERSION: "0.6.30"
-                }, s = Object.prototype.hasOwnProperty, u = e.Math, l = e.getComputedStyle, c, f, h = "touchstart", p = "touchmove", m = "touchcancel", g = "touchend", v = "skrollable", y = "skrollable-before", w = "skrollable-between", b = "skrollable-after", C = "skrollr", S = "no-skrollr", x = "skrollr-desktop", _ = "skrollr-mobile", A = "linear", T = 1e3, E = .004, k = "skrollr-body", I = 200, M = "start", P = "end", L = "center", O = "bottom", B = "___skrollable_id", F = /^(?:input|textarea|button|select)$/i, N = /^\s+|\s+$/g, U = /^data(?:-(_\w+))?(?:-?(-?\d*\.?\d+p?))?(?:-?(start|end|top|center|bottom))?(?:-?(top|center|bottom))?$/, z = /\s*(@?[\w\-\[\]]+)\s*:\s*(.+?)\s*(?:;|$)/gi, $ = /^(@?[a-z\-]+)\[(\w+)\]$/, H = /-([a-z0-9_])/g, Y = function(t, e) {
+                }, s = Object.prototype.hasOwnProperty, u = e.Math, l = e.getComputedStyle, c, f, h = "touchstart", p = "touchmove", m = "touchcancel", g = "touchend", v = "skrollable", y = "skrollable-before", w = "skrollable-between", b = "skrollable-after", C = "skrollr", S = "no-skrollr", x = "skrollr-desktop", _ = "skrollr-mobile", A = "linear", T = 1e3, E = .004, k = "skrollr-body", I = 200, M = "start", P = "end", L = "center", O = "bottom", B = "___skrollable_id", F = /^(?:input|textarea|button|select)$/i, N = /^\s+|\s+$/g, U = /^data(?:-(_\w+))?(?:-?(-?\d*\.?\d+p?))?(?:-?(start|end|top|center|bottom))?(?:-?(top|center|bottom))?$/, $ = /\s*(@?[\w\-\[\]]+)\s*:\s*(.+?)\s*(?:;|$)/gi, z = /^(@?[a-z\-]+)\[(\w+)\]$/, H = /-([a-z0-9_])/g, Y = function(t, e) {
                     return e.toUpperCase()
                 }, W = /[\-+]?[\d]*\.?[\d]+/g, V = /\{\?\}/g, j = /rgba?\(\s*-?\d+\s*,\s*-?\d+\s*,\s*-?\d+/g, G = /[a-z\-]+-gradient/g, K = "", Z = "", X = function() {
                     var t = /^(?:O|Moz|webkit|ms)|(?:-(?:o|moz|webkit|ms)-)/;
@@ -6264,7 +6263,7 @@
                     Nt = i,
                     Ut = i,
                     qt = "down",
-                    zt = -1,
+                    $t = -1,
                     Ht = 0,
                     Yt = 0,
                     Wt = false,
@@ -6427,37 +6426,37 @@
                     else if (!Zt) {
                         var s;
                         Kt.targetTop - t && (Kt = {
-                            startTop: zt,
-                            topDiff: t - zt,
+                            startTop: $t,
+                            topDiff: t - $t,
                             targetTop: t,
-                            startTime: $t,
-                            endTime: $t + Gt
+                            startTime: zt,
+                            endTime: zt + Gt
                         }),
                         n <= Kt.endTime && (a = nt.sqrt((n - Kt.startTime) / Gt),
                         t = Kt.startTop + a * Kt.topDiff | 0)
                     }
-                    if (Zt || zt !== t) {
+                    if (Zt || $t !== t) {
                         Zt = false;
                         var u = {
                             curTop: t,
-                            lastTop: zt,
+                            lastTop: $t,
                             maxTop: Ft,
-                            direction: qt = t > zt ? "down" : t < zt ? "up" : qt
+                            direction: qt = t > $t ? "down" : t < $t ? "up" : qt
                         }, l;
                         false !== (Ot.beforerender && Ot.beforerender.call(Mt, u)) && (ot(t, Mt.getScrollTop()),
                         Qt && Lt && o.setStyle(Lt, "transform", "translate(0, " + -te + "px) " + ee),
-                        zt = t,
+                        $t = t,
                         Ot.render && Ot.render.call(Mt, u)),
                         e && e.call(Mt, false)
                     }
-                    $t = n
+                    zt = n
                 }
                   , ut = function(t) {
                     for (var e = 0, n = t.keyFrames.length; e < n; e++) {
-                        for (var i = t.keyFrames[e], a, o, s, props = {}, u; null !== (u = z.exec(i.props)); )
+                        for (var i = t.keyFrames[e], a, o, s, props = {}, u; null !== (u = $.exec(i.props)); )
                             s = u[1],
                             o = u[2],
-                            null !== (a = s.match($)) ? (s = a[1],
+                            null !== (a = s.match(z)) ? (s = a[1],
                             a = a[2]) : a = A,
                             o = o.indexOf("!") ? lt(o) : [o.slice(1)],
                             props[s] = {
@@ -6625,7 +6624,7 @@
                 }
                 , Dt = function(t, e) {
                     return t.frame - e.frame
-                }, Mt, Pt, Lt, Ot, Bt, Ft = 0, Rt = 1, Nt, Ut, qt = "down", zt = -1, $t = kt(), Ht = 0, Yt = 0, Wt = false, Vt, jt, Gt, Kt, Zt, Xt = 0, Jt, Qt = false, te = 0, ee, ne = [], ie;
+                }, Mt, Pt, Lt, Ot, Bt, Ft = 0, Rt = 1, Nt, Ut, qt = "down", $t = -1, zt = kt(), Ht = 0, Yt = 0, Wt = false, Vt, jt, Gt, Kt, Zt, Xt = 0, Jt, Qt = false, te = 0, ee, ne = [], ie;
                 "function" == typeof define && define.amd ? define([], (function() {
                     return o
                 }
@@ -6634,7 +6633,7 @@
         }
         ).call(window)
     },
-    15407: function(t, e, n) {
+    15464: function(t, e, n) {
         "use strict";
         function i(t) {
             this.initialize(t)
@@ -6680,7 +6679,7 @@
             ,
             t
         }
-        n(15408),
+        n(15465),
         i.prototype.initialize = function t(e) {
             this.waypoint || e && e.element && "function" == typeof e.handler && (e = u(e),
             this.waypoint = new Waypoint(e))
@@ -6693,7 +6692,7 @@
         ,
         window.WaypointAdapter = i
     },
-    15408: function(t, e) {
+    15465: function(t, e) {
         var e = void 0
           , t = void 0;
         (function() {
@@ -7235,7 +7234,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ).call(window)
     },
-    15409: function(t, e, n) {
+    15466: function(t, e, n) {
         "use strict";
         var i = n(29);
         i(document).ready((function() {
@@ -7294,7 +7293,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15410: function(t, e, n) {
+    15467: function(t, e, n) {
         "use strict";
         function i(t) {
             function e() {
@@ -7383,7 +7382,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         )),
         window._npStickyStack = i
     },
-    15411: function(t, e, n) {
+    15468: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -7407,7 +7406,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
         }
     },
-    15412: function(t, e, n) {
+    15469: function(t, e, n) {
         "use strict";
         var i = n(29), a;
         ("Microsoft Internet Explorer" === navigator.appName || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || void 0 !== i.browser && 1 === i.browser.msie) && i((function() {
@@ -7420,16 +7419,16 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15413: function(t, e, n) {
+    15470: function(t, e, n) {
         "use strict";
-        var Utils = n(472)
-          , Animation = n(15414)
-          , i = n(370);
-        n(832),
-        n(15418),
+        var Utils = n(477)
+          , Animation = n(15471)
+          , i = n(372);
+        n(835),
+        n(15475),
         Utils.animationsEnabled() && (window.uAnimation = new Animation(i.instance()).init())
     },
-    15414: function(t, e, n) {
+    15471: function(t, e, n) {
         "use strict";
         function Animation(factory) {
             this.factory = factory,
@@ -7470,11 +7469,11 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         function u() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || navigator.vendor || window.opera)
         }
-        var l = n(534)
-          , c = n(535)
-          , f = n(15415)
-          , h = n(15416)
-          , p = n(15417);
+        var l = n(539)
+          , c = n(540)
+          , f = n(15472)
+          , h = n(15473)
+          , p = n(15474);
         Animation.utils = l,
         Animation.prototype.init = function init() {
             return "loading" !== document.readyState ? (this._onDOMContentLoaded(),
@@ -7580,7 +7579,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = Animation,
         window.Animation = Animation
     },
-    15415: function(t, e, n) {
+    15472: function(t, e, n) {
         "use strict";
         function i(animation) {
             if (animation.start(),
@@ -7618,7 +7617,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = s,
         window.AnimationEventScroll = s
     },
-    15416: function(t, e, n) {
+    15473: function(t, e, n) {
         "use strict";
         function i(carousel, slide, t) {
             this.carousel = $(carousel),
@@ -7761,7 +7760,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = i,
         window.AnimationEventSlider = i
     },
-    15417: function(t, e, n) {
+    15474: function(t, e, n) {
         "use strict";
         function i(t) {
             var e = [];
@@ -7786,10 +7785,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = a,
         window.WillChangeHint = a
     },
-    15418: function(t, e, n) {
+    15475: function(t, e, n) {
         "use strict";
-        var i = n(15419), Utils;
-        n(472).animationsEnabled() && document.addEventListener("np.responsive.init", function(t) {
+        var i = n(15476), Utils;
+        n(477).animationsEnabled() && document.addEventListener("np.responsive.init", function(t) {
             setTimeout((function() {
                 var e;
                 new i(t.detail && t.detail.mode).subscribe()
@@ -7798,7 +7797,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         .bind(this), false)
     },
-    15419: function(t, e, n) {
+    15476: function(t, e, n) {
         "use strict";
         function i(t) {
             this.mode = t || "XL",
@@ -7810,7 +7809,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
         }
         t.exports = i;
-        var a = n(15420);
+        var a = n(15477);
         i.prototype.subscribe = function() {
             this.animations = this.initTimeline(),
             document.addEventListener("np.responsive.changed", this._responsiveListener, false);
@@ -7875,7 +7874,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.ScrollTimeline = i
     },
-    15420: function(t, e, n) {
+    15477: function(t, e, n) {
         "use strict";
         function i(t, animation, e) {
             this.dom = t,
@@ -7885,8 +7884,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             this.state = null,
             this.global = null
         }
-        var a = n(15421)
-          , o = n(828);
+        var a = n(15478)
+          , o = n(831);
         t.exports = i;
         var s = "before"
           , u = "start"
@@ -8006,7 +8005,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.StepAnimation = i
     },
-    15421: function(t, e, n) {
+    15478: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.create = function(t) {
@@ -8032,7 +8031,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.StepAnimationState = i
     },
-    15422: function(t, e, n) {
+    15479: function(t, e, n) {
         "use strict";
         function i() {}
         function a(t, props) {
@@ -8086,7 +8085,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15423: function(t, e, n) {
+    15480: function(t, e, n) {
         "use strict";
         function i() {
             var form = s(".u-form")
@@ -8111,9 +8110,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             })
         }
         var s = n(29)
-          , u = n(4690)
-          , l = n(4689)
-          , Utils = n(472);
+          , u = n(4716)
+          , l = n(4715)
+          , Utils = n(477);
         s((function() {
             var t = s("." + l.COOKIES_SECTION);
             if (!t.length)
@@ -8145,7 +8144,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15424: function(t, e, n) {
+    15481: function(t, e, n) {
         "use strict";
         $((function() {
             var selector = ".u-back-to-top";
@@ -8157,10 +8156,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15425: function(t, e, n) {
+    15482: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(15426);
+          , a = n(15483);
         window._npScrollSpyInit = function() {
             var t = '.u-menu .u-nav-container .u-nav-link[href*="#"]', e = '.u-menu .u-nav-container-collapse .u-nav-link[href*="#"]', n;
             if (document.querySelectorAll(t).length)
@@ -8198,7 +8197,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15426: function(t, e, n) {
+    15483: function(t, e, n) {
         "use strict";
         (function(e) {
             /*!
@@ -8254,8 +8253,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 }, o = function() {
                     return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight)
                 }, s = function(e, settings, n) {
-                    var i = e.getBoundingClientRect()
-                      , o = a(settings);
+                    var i = e.getBoundingClientRect();
+                    if (!i.height || !i.width)
+                        return false;
+                    var o = a(settings);
                     return n ? parseInt(i.bottom, 10) < (t.innerHeight || document.documentElement.clientHeight) : parseInt(i.top, 10) <= o
                 }, u = function() {
                     return t.innerHeight + t.pageYOffset >= o()
@@ -8375,12 +8376,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ).call(e, n(89))
     },
-    15427: function(t, e, n) {
+    15484: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , Filter = n(15428)
-          , a = n(15430)
-          , HorizontalLayoutSlider = n(558);
+          , Filter = n(15485)
+          , a = n(15487)
+          , HorizontalLayoutSlider = n(562);
         i(window).on("load", (function() {
             setTimeout((function() {
                 i(".u-gallery").removeClass("u-no-transition"),
@@ -8410,9 +8411,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15428: function(t, e, n) {
+    15485: function(t, e, n) {
         "use strict";
-        var i = n(29), GalleryLayout = n(15429), Filter;
+        var i = n(29), GalleryLayout = n(15486), Filter;
         t.exports.init = function() {
             var filter = i(".u-gallery-filter");
             filter.on("click", ".u-filter-item", (function(t) {
@@ -8437,7 +8438,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             ))
         }
     },
-    15429: function(t, e, n) {
+    15486: function(t, e, n) {
         "use strict";
         function GalleryLayout(gallery) {
             this.columnsRegEx = /repeat\((\d+),\s*auto\)/i,
@@ -8485,7 +8486,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
         }
     },
-    15430: function(t, e, n) {
+    15487: function(t, e, n) {
         "use strict";
         function i(t) {
             this.galleryZoomSelector = t
@@ -8537,10 +8538,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.ImageZoom = i
     },
-    15431: function(t, e, n) {
+    15488: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , TabsControl = n(373);
+          , TabsControl = n(375);
         window._npTabsInit = function() {
             function t(t) {
                 t.preventDefault(),
@@ -8556,9 +8557,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15432: function(t, e, n) {
+    15489: function(t, e, n) {
         "use strict";
-        var i = n(15433);
+        var i = n(15490);
         window._npLazyImages = {
             setup: function() {
                 window.lazySizesConfig = window.lazySizesConfig || {},
@@ -8586,7 +8587,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15433: function(t, e, n) {
+    15490: function(t, e, n) {
         "use strict";
         !function(e, factory) {
             var n = factory(e, e.document, Date);
@@ -8774,13 +8775,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                             c = -1 * l,
                             h = l),
                             rect = v[e].getBoundingClientRect(),
-                            (X = rect.bottom) >= c && (G = rect.top) <= j && (Z = rect.right) >= c * g && (K = rect.left) <= V && (X || Z || K || G) && (a.loadHidden || ct(v[e])) && ($ && st < 3 && !f && (Y < 3 || ut < 4) || dt(v[e], l))) {
+                            (X = rect.bottom) >= c && (G = rect.top) <= j && (Z = rect.right) >= c * g && (K = rect.left) <= V && (X || Z || K || G) && (a.loadHidden || ct(v[e])) && (z && st < 3 && !f && (Y < 3 || ut < 4) || dt(v[e], l))) {
                                 if (bt(v[e]),
                                 u = true,
                                 st > 9)
                                     break
                             } else
-                                !u && $ && !s && st < 4 && ut < 4 && Y > 2 && (z[0] || a.preloadAfterLoad) && (z[0] || !f && (X || Z || K || G || "auto" != v[e].getAttribute(a.sizesAttr))) && (s = z[0] || v[e]);
+                                !u && z && !s && st < 4 && ut < 4 && Y > 2 && ($[0] || a.preloadAfterLoad) && ($[0] || !f && (X || Z || K || G || "auto" != v[e].getAttribute(a.sizesAttr))) && (s = $[0] || v[e]);
                     s && !u && bt(s)
                 }
             }
@@ -8855,7 +8856,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             bt = function(t) {
                 if (!t._lazyRace) {
                     var e, n = tt.test(t.nodeName), i = n && (t.getAttribute(a.sizesAttr) || t.getAttribute("sizes")), o = "auto" == i;
-                    (!o && $ || !n || !t.getAttribute("src") && !t.srcset || t.complete || w(t, a.errorClass) || !w(t, a.lazyClass)) && (e = x(t, "lazyunveilread").detail,
+                    (!o && z || !n || !t.getAttribute("src") && !t.srcset || t.complete || w(t, a.errorClass) || !w(t, a.lazyClass)) && (e = x(t, "lazyunveilread").detail,
                     o && _t.updateElem(t, true, t.offsetWidth),
                     t._lazyRace = true,
                     st++,
@@ -8869,11 +8870,11 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
             )),
             xt = function() {
-                if (!$) {
+                if (!z) {
                     if (Date.now() - W < 999)
                         return f(xt, 999),
                         void 0;
-                    $ = true,
+                    z = true,
                     a.loadMode = 3,
                     ht(),
                     c("scroll", St, true)
@@ -8884,7 +8885,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 _: function() {
                     W = Date.now(),
                     i.elements = n.getElementsByClassName(a.lazyClass),
-                    z = n.getElementsByClassName(a.lazyClass + " " + a.preloadClass),
+                    $ = n.getElementsByClassName(a.lazyClass + " " + a.preloadClass),
                     c("scroll", ht, true),
                     c("resize", ht, true),
                     c("pageshow", (function(t) {
@@ -8924,7 +8925,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                     3 == a.loadMode && (a.loadMode = 2),
                     Ct()
                 }
-            }), z, $, H, Y, W, V, j, G, K, Z, X, J, tt, nt, rt, at, ot, st, ut, lt, ct, dt, ft, ht, pt, mt, gt, vt, yt, wt, bt, Ct, St, xt, _t = (Tt = F((function(t, e, n, i) {
+            }), $, z, H, Y, W, V, j, G, K, Z, X, J, tt, nt, rt, at, ot, st, ut, lt, ct, dt, ft, ht, pt, mt, gt, vt, yt, wt, bt, Ct, St, xt, _t = (Tt = F((function(t, e, n, i) {
                 var a, o, s;
                 if (t._lazysizesWidth = i,
                 i += "px",
@@ -8983,10 +8984,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15434: function(t, e, n) {
+    15491: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , Dialog = n(304);
+          , Dialog = n(307);
         window._npDialogsInit = function() {
             function t(t) {
                 var dialog = a(t);
@@ -9053,10 +9054,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15435: function(t, e, n) {
+    15492: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , CountdownUpdater = n(372);
+          , CountdownUpdater = n(374);
         i(window).on("load", (function() {
             function update() {
                 t.each((function(t, el) {
@@ -9070,7 +9071,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15436: function(t, e, n) {
+    15493: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -9090,7 +9091,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15437: function(t, e, n) {
+    15494: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -9121,10 +9122,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15438: function(t, e, n) {
+    15495: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , Accordion = n(305);
+          , Accordion = n(308);
         window._npAccordionInit = function() {
             function t(t) {
                 t.preventDefault(),
@@ -9140,7 +9141,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15439: function(t, e, n) {
+    15496: function(t, e, n) {
         "use strict";
         function i(t) {
             var form = l(this)
@@ -9177,7 +9178,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
             ), 2e3)
         }
-        var u = n(15440)
+        var u = n(15497)
           , l = n(29)
           , c = "auth_key";
         window.sha256 = u,
@@ -9192,7 +9193,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15440: function(t, e, n) {
+    15497: function(t, e, n) {
         "use strict";
         function i() {
             u = String.fromCharCode(128),
@@ -9239,9 +9240,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 b -= 64
             }
         }
-        var o = n(1261);
-        n(15441),
-        n(15442);
+        var o = n(1270);
+        n(15498),
+        n(15499);
         var s = t.exports = o.sha256 = o.sha256 || {};
         o.md.sha256 = o.md.algorithms.sha256 = s,
         s.create = function() {
@@ -9332,13 +9333,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
           , l = false
           , c = null
     },
-    15441: function(t, e, n) {
+    15498: function(t, e, n) {
         "use strict";
-        var i = n(1261);
+        var i = n(1270);
         t.exports = i.md = i.md || {},
         i.md.algorithms = i.md.algorithms || {}
     },
-    15442: function(t, e, n) {
+    15499: function(t, e, n) {
         "use strict";
         (function(e, i, a, o) {
             function s(t) {
@@ -9382,8 +9383,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 null != t && this.putBytes(t),
                 "writeOffset"in e && (this.write = e.writeOffset)
             }
-            var c = n(1261)
-              , f = n(15443)
+            var c = n(1270)
+              , f = n(15500)
               , util = t.exports = c.util = c.util || {};
             !function() {
                 if (void 0 !== e && e.nextTick && !e.browser)
@@ -10449,9 +10450,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 n([], 5, 16)
             }
         }
-        ).call(e, n(192), n(342).setImmediate, n(89), n(122).Buffer)
+        ).call(e, n(193), n(344).setImmediate, n(89), n(122).Buffer)
     },
-    15443: function(t, e, n) {
+    15500: function(t, e, n) {
         "use strict";
         (function(e) {
             function n(input, t) {
@@ -10542,7 +10543,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ).call(e, n(122).Buffer)
     },
-    15444: function(t, e, n) {
+    15501: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -10553,7 +10554,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15445: function(t, e, n) {
+    15502: function(t, e, n) {
         "use strict";
         var FormRating = t.exports = {}
           , i = n(29)
@@ -10605,7 +10606,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             n.attr("type", "text"))
         }
     },
-    15446: function(t, e, n) {
+    15503: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -10619,7 +10620,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15447: function(t, e, n) {
+    15504: function(t, e, n) {
         "use strict";
         function i(input) {
             var t = parseFloat(input.prop("max"))
@@ -10662,7 +10663,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15448: function(t, e, n) {
+    15505: function(t, e, n) {
         "use strict";
         function i(t, dependency) {
             var e = ['[name="' + dependency.field + '"]', '[name="' + dependency.field + '[]"]'].join(", ")
@@ -10674,7 +10675,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         var FormDependency = t.exports
           , o = n(29)
-          , s = n(15449);
+          , s = n(15506);
         o((function() {
             o(".u-form").each((function() {
                 FormDependency.process(o(this))
@@ -10719,7 +10720,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
         }
     },
-    15449: function(t, e, n) {
+    15506: function(t, e, n) {
         "use strict";
         function i(t) {
             return t.toArray().filter((function(el) {
@@ -10796,7 +10797,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.FormDependencyCondition = o
     },
-    15450: function(t, e, n) {
+    15507: function(t, e, n) {
         "use strict";
         function i(form) {
             var activeSlide, t;
@@ -10813,8 +10814,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             ))
         }
         var o = n(29)
-          , FormProgress = n(899)
-          , s = n(900)
+          , FormProgress = n(903)
+          , s = n(904)
           , u = "u-carousel";
         o((function() {
             var t = o("body")
@@ -10850,7 +10851,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15451: function(t, e, n) {
+    15508: function(t, e, n) {
         "use strict";
         function i() {
             return -1 !== (c("html").attr("class") || "").search(/u-responsive-(xs|sm)/)
@@ -10892,8 +10893,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             )),
             t.customDays = a
         }
-        var u = n(4691)
-          , l = n(4692)
+        var u = n(4717)
+          , l = n(15509)
           , c = n(29)
           , f = {
             init: function(el) {
@@ -10950,7 +10951,274 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15452: function(t, e, n) {
+    15509: function(t, e, n) {
+        "use strict";
+        function i(t) {
+            return i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function t(e) {
+                return typeof e
+            }
+            : function t(e) {
+                return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
+            }
+            ,
+            i(t)
+        }
+        !function(n) {
+            var a = arguments, o = (s = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g,
+            u = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
+            l = /[^-+\dA-Z]/g,
+            function(date, t, e, n) {
+                if (1 !== a.length || "string" !== m(date) || /\d/.test(date) || (t = date,
+                date = void 0),
+                (date = date || 0 === date ? date : new Date)instanceof Date || (date = new Date(date)),
+                isNaN(date))
+                    throw TypeError("Invalid date");
+                var i = (t = String(o.masks[t] || t || o.masks.default)).slice(0, 4);
+                "UTC:" !== i && "GMT:" !== i || (t = t.slice(4),
+                e = true,
+                "GMT:" === i && (n = true));
+                var g = function t() {
+                    return e ? "getUTC" : "get"
+                }
+                  , v = function d() {
+                    return date[g() + "Date"]()
+                }
+                  , D = function D() {
+                    return date[g() + "Day"]()
+                }
+                  , y = function t() {
+                    return date[g() + "Month"]()
+                }
+                  , w = function t() {
+                    return date[g() + "FullYear"]()
+                }
+                  , b = function t() {
+                    return date[g() + "Hours"]()
+                }
+                  , C = function t() {
+                    return date[g() + "Minutes"]()
+                }
+                  , S = function t() {
+                    return date[g() + "Seconds"]()
+                }
+                  , x = function t() {
+                    return date[g() + "Milliseconds"]()
+                }
+                  , _ = function t() {
+                    return e ? 0 : date.getTimezoneOffset()
+                }
+                  , A = function t() {
+                    return h(date)
+                }
+                  , T = function t() {
+                    return p(date)
+                }
+                  , E = {
+                    d: function d() {
+                        return v()
+                    },
+                    dd: function t() {
+                        return c(v())
+                    },
+                    ddd: function t() {
+                        return o.i18n.dayNames[D()]
+                    },
+                    DDD: function t() {
+                        return f({
+                            y: w(),
+                            m: y(),
+                            d: v(),
+                            _: g(),
+                            dayName: o.i18n.dayNames[D()],
+                            short: true
+                        })
+                    },
+                    dddd: function t() {
+                        return o.i18n.dayNames[D() + 7]
+                    },
+                    DDDD: function t() {
+                        return f({
+                            y: w(),
+                            m: y(),
+                            d: v(),
+                            _: g(),
+                            dayName: o.i18n.dayNames[D() + 7]
+                        })
+                    },
+                    m: function t() {
+                        return y() + 1
+                    },
+                    mm: function t() {
+                        return c(y() + 1)
+                    },
+                    mmm: function t() {
+                        return o.i18n.monthNames[y()]
+                    },
+                    mmmm: function t() {
+                        return o.i18n.monthNames[y() + 12]
+                    },
+                    yy: function t() {
+                        return String(w()).slice(2)
+                    },
+                    yyyy: function t() {
+                        return c(w(), 4)
+                    },
+                    h: function t() {
+                        return b() % 12 || 12
+                    },
+                    hh: function t() {
+                        return c(b() % 12 || 12)
+                    },
+                    H: function t() {
+                        return b()
+                    },
+                    HH: function t() {
+                        return c(b())
+                    },
+                    M: function t() {
+                        return C()
+                    },
+                    MM: function t() {
+                        return c(C())
+                    },
+                    s: function t() {
+                        return S()
+                    },
+                    ss: function t() {
+                        return c(S())
+                    },
+                    l: function t() {
+                        return c(x(), 3)
+                    },
+                    L: function t() {
+                        return c(Math.floor(x() / 10))
+                    },
+                    t: function t() {
+                        return b() < 12 ? o.i18n.timeNames[0] : o.i18n.timeNames[1]
+                    },
+                    tt: function t() {
+                        return b() < 12 ? o.i18n.timeNames[2] : o.i18n.timeNames[3]
+                    },
+                    T: function t() {
+                        return b() < 12 ? o.i18n.timeNames[4] : o.i18n.timeNames[5]
+                    },
+                    TT: function t() {
+                        return b() < 12 ? o.i18n.timeNames[6] : o.i18n.timeNames[7]
+                    },
+                    Z: function t() {
+                        return n ? "GMT" : e ? "UTC" : (String(date).match(u) || [""]).pop().replace(l, "").replace(/GMT\+0000/g, "UTC")
+                    },
+                    o: function t() {
+                        return (_() > 0 ? "-" : "+") + c(100 * Math.floor(Math.abs(_()) / 60) + Math.abs(_()) % 60, 4)
+                    },
+                    p: function t() {
+                        return (_() > 0 ? "-" : "+") + c(Math.floor(Math.abs(_()) / 60), 2) + ":" + c(Math.floor(Math.abs(_()) % 60), 2)
+                    },
+                    S: function t() {
+                        return ["th", "st", "nd", "rd"][v() % 10 > 3 ? 0 : (v() % 100 - v() % 10 != 10) * v() % 10]
+                    },
+                    W: function t() {
+                        return A()
+                    },
+                    WW: function t() {
+                        return c(A())
+                    },
+                    N: function t() {
+                        return T()
+                    }
+                };
+                return t.replace(s, (function(t) {
+                    return t in E ? E[t]() : t.slice(1, t.length - 1)
+                }
+                ))
+            }
+            ), s, u, l;
+            o.masks = {
+                default: "ddd mmm dd yyyy HH:MM:ss",
+                shortDate: "m/d/yy",
+                paddedShortDate: "mm/dd/yyyy",
+                mediumDate: "mmm d, yyyy",
+                longDate: "mmmm d, yyyy",
+                fullDate: "dddd, mmmm d, yyyy",
+                shortTime: "h:MM TT",
+                mediumTime: "h:MM:ss TT",
+                longTime: "h:MM:ss TT Z",
+                isoDate: "yyyy-mm-dd",
+                isoTime: "HH:MM:ss",
+                isoDateTime: "yyyy-mm-dd'T'HH:MM:sso",
+                isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
+                expiresHeaderFormat: "ddd, dd mmm yyyy HH:MM:ss Z"
+            },
+            o.i18n = {
+                dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
+            };
+            var c = function t(e, n) {
+                for (e = String(e),
+                n = n || 2; e.length < n; )
+                    e = "0" + e;
+                return e
+            }
+              , f = function t(e) {
+                var n = e.y
+                  , i = e.m
+                  , d = e.d
+                  , a = e._
+                  , o = e.dayName
+                  , s = e.short
+                  , u = void 0 !== s && s
+                  , l = new Date
+                  , c = new Date;
+                c.setDate(c[a + "Date"]() - 1);
+                var f = new Date;
+                f.setDate(f[a + "Date"]() + 1);
+                var h = function t() {
+                    return l[a + "Date"]()
+                }, p = function t() {
+                    return l[a + "Month"]()
+                }, m, g = function t() {
+                    return c[a + "Date"]()
+                }, v = function t() {
+                    return c[a + "Month"]()
+                }, y = function t() {
+                    return c[a + "FullYear"]()
+                }, w = function t() {
+                    return f[a + "Date"]()
+                }, b = function t() {
+                    return f[a + "Month"]()
+                }, C = function t() {
+                    return f[a + "FullYear"]()
+                };
+                return function t() {
+                    return l[a + "FullYear"]()
+                }() === n && p() === i && h() === d ? u ? "Tdy" : "Today" : y() === n && v() === i && g() === d ? u ? "Ysd" : "Yesterday" : C() === n && b() === i && w() === d ? u ? "Tmw" : "Tomorrow" : o
+            }
+              , h = function t(date) {
+                var e = new Date(date.getFullYear(),date.getMonth(),date.getDate());
+                e.setDate(e.getDate() - (e.getDay() + 6) % 7 + 3);
+                var n = new Date(e.getFullYear(),0,4);
+                n.setDate(n.getDate() - (n.getDay() + 6) % 7 + 3);
+                var i = e.getTimezoneOffset() - n.getTimezoneOffset();
+                e.setHours(e.getHours() - i);
+                var a = (e - n) / 6048e5;
+                return 1 + Math.floor(a)
+            }
+              , p = function t(date) {
+                var e = date.getDay();
+                return 0 === e && (e = 7),
+                e
+            }
+              , m = function t(e) {
+                return null === e ? "null" : void 0 === e ? "undefined" : "object" !== i(e) ? i(e) : Array.isArray(e) ? "array" : {}.toString.call(e).slice(8, -1).toLowerCase()
+            };
+            "function" == typeof define && define.amd ? define((function() {
+                return o
+            }
+            )) : "object" === i(e) ? t.exports = o : n.dateFormat = o
+        }(void 0)
+    },
+    15510: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -10970,7 +11238,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15453: function(t, e, n) {
+    15511: function(t, e, n) {
         "use strict";
         function i(t) {
             return new Promise((function(e) {
@@ -11061,9 +11329,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15454: function(t, e, n) {
+    15512: function(t, e, n) {
         "use strict";
-        var i = n(15455)
+        var i = n(15513)
           , a = n(29);
         a((function() {
             a("form .u-form-country select").each((function() {
@@ -11097,13 +11365,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15455: function(t, e, n) {
+    15513: function(t, e, n) {
         "use strict";
         function i(t) {
             a[t.name.toLowerCase()] = t.code,
             o[t.code.toLowerCase()] = t.name
         }
-        var data = n(619)
+        var data = n(623)
           , a = {}
           , o = {};
         data.forEach(i);
@@ -11150,10 +11418,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = s,
         window.CountryList = s
     },
-    15456: function(t, e, n) {
+    15514: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(15457);
+          , a = n(15515);
         i((function() {
             i("form .u-form-signature canvas").each((function() {
                 var t;
@@ -11163,7 +11431,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15457: function(t, e, n) {
+    15515: function(t, e, n) {
         "use strict";
         function i(t) {
             this.canvas = t,
@@ -11351,7 +11619,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         t.exports = i
     },
-    15458: function(t, e, n) {
+    15516: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -11410,20 +11678,20 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15459: function(t, e, n) {
+    15517: function(t, e, n) {
         "use strict";
-        var i = n(15460), a = n(15461), o = n(15467), s, u;
+        var i = n(15518), a = n(15519), o = n(15525), s, u;
         new a(i).subscribe(),
         new o(i).subscribe()
     },
-    15460: function(t, e, n) {
+    15518: function(t, e, n) {
         "use strict";
         t.exports = {
             sessionId: Math.random().toString(36).slice(2),
             payPalSdkUrl: "https://www.paypal.com/sdk/js"
         }
     },
-    15461: function(t, e, n) {
+    15519: function(t, e, n) {
         "use strict";
         function i(t) {
             this.paymentConfig = t,
@@ -11435,15 +11703,15 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             this.zeroDecimalCurrencies = ["BIF", "CLP", "DJF", "GNF", "JPY", "KMF", "KRW", "MGA", "PYG", "RWF", "UGX", "VND", "VUV", "XAF", "XOF", "XPF", "HUF", "TWD"]
         }
         var a = n(29)
-          , Const = n(340)
-          , TabsControl = n(373)
-          , o = n(15462)
-          , s = n(4693)
-          , u = n(4694)
-          , l = n(15464)
-          , c = n(1262)
-          , f = n(4695)
-          , h = n(15466);
+          , Const = n(342)
+          , TabsControl = n(375)
+          , o = n(15520)
+          , s = n(4718)
+          , u = n(4719)
+          , l = n(15522)
+          , c = n(1271)
+          , f = n(4720)
+          , h = n(15524);
         t.exports = i,
         i.prototype.subscribe = function t() {
             a(document).on("opened.np.dialog", ".u-dialog-block", function(t, dialog, e) {
@@ -11464,6 +11732,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 if (this.paymentMessage.setDialog(e),
                 this.paypalCurrencyWarning.setDialog(e),
                 this.isCart = n.is(".u-shopping-cart"),
+                this.fillCaption(e),
                 this.isCart) {
                     if (!(products = c.getCart().getProducts()))
                         return this.paymentMessage.cartEmpty(),
@@ -11706,18 +11975,21 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             })
         }
         ,
+        i.prototype.fillCaption = function(t) {
+            var e = t.find(".u-text:not(.u-product-control, .u-products .u-text)").eq(0)
+              , n = e.next(".u-text:not(.u-product-control)");
+            n.length || ((n = e.clone()).text("Your cart"),
+            e.after(n)),
+            e.toggle(!this.isCart),
+            n.toggle(this.isCart)
+        }
+        ,
         i.prototype.fillModal = function t(e, products) {
-            var n = e.find(".u-text:not(.u-product-control, .u-products .u-text)").eq(0)
-              , i = n.next(".u-text:not(.u-product-control)");
-            i.length || ((i = n.clone()).text("Your cart"),
-            n.after(i)),
-            n.toggle(!this.isCart),
-            i.toggle(this.isCart);
             var repeaterItem = e.find(".u-repeater-item").eq(0)
-              , o = repeaterItem.find(".product-remove");
-            o.length || (o = a('<span class="product-remove"/>'),
-            repeaterItem.find(".u-price").after(o)),
-            o.toggle(this.isCart);
+              , n = repeaterItem.find(".product-remove");
+            n.length || (n = a('<span class="product-remove"/>'),
+            repeaterItem.find(".u-price").after(n)),
+            n.toggle(this.isCart);
             var container = a("<div/>")
               , data = {
                 price: 0,
@@ -11901,7 +12173,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaymentButtons = i
     },
-    15462: function(t, e, n) {
+    15520: function(t, e, n) {
         "use strict";
         function i(t, data) {
             this.paymentConfig = t,
@@ -11909,7 +12181,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             this.service = data.service,
             this.products = data.products
         }
-        var a = n(15463);
+        var a = n(15521);
         t.exports = i,
         i.prototype.generate = function t() {
             var e = this.paymentControl.attr("data-payment-paypal-layout") || "vertical"
@@ -11957,10 +12229,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaypalProductHtml = i
     },
-    15463: function(t, e) {
+    15521: function(t, e) {
         t.exports = "<style>\n    body {\n        margin: 0;\n    }\n</style>\n<div id=\"paypal-button-container\"></div>\n<script src=\"[PAYPALSDK_URL]?client-id=[PAYPALCLIENT_ID]&currency=[CURRENCY]&disable-funding=[PAYPAL_HIDDEN_BUTTONS]\"><\/script>\n<script>\n    (function () {\n        const sessionId = '[SESSION_ID]';\n        const products = [PRODUCTS];\n\n        const paypalStyle = {\n            layout: '[PAYPAL_STYLE_LAYOUT]',\n            shape: '[PAYPAL_STYLE_SHAPE]',\n            color: '[PAYPAL_STYLE_COLOR]',\n        };\n\n        const buttons = {\n            style: paypalStyle,\n            createOrder: async function (data, actions) {\n                postMessageToParent({type: 'ORDER_CREATED'});\n\n                var items = [];\n                var totalPrice = 0;\n                var currencyCode;\n                products.forEach(function (product) {\n                    var price = parseFloat(product.price);\n                    var quantity = parseFloat(product.quantity);\n                    totalPrice += price * quantity;\n                    currencyCode = product.currency;\n                    var item = {\n                        name: product.title,\n                        description: product.description,\n                        sku: product.sku,\n                        unit_amount: {\n                            currency_code: product.currency,\n                            value: price,\n                        },\n                        quantity: quantity,\n                    };\n                    items.push(item);\n                });\n\n                return actions.order.create({\n                    purchase_units: [\n                        {\n                            reference_id: '[REFERENCE_ID]',\n                            amount: {\n                                currency_code: currencyCode,\n                                value: totalPrice,\n                                breakdown: {\n                                    item_total: {\n                                        currency_code: currencyCode,\n                                        value: totalPrice,\n                                    },\n                                },\n                            },\n                            items: items,\n                        },\n                    ],\n                });\n            },\n            onApprove: async function (data, actions) {\n                return actions.order.capture().then(function () {\n                    postMessageToParent({type: 'ORDER_APPROVED'});\n                })\n            },\n            onCancel(data) {\n                postMessageToParent({type: 'ORDER_CANCELED'});\n            },\n            onError(err) {\n                postMessageToParent({type: 'ORDER_ERROR'});\n            }\n        };\n\n        window.addEventListener('message', function ({data}) {\n            console.log('Data: ', data);\n            data = data || '';\n\n            if (!data.startsWith(sessionId)) {\n                return;\n            }\n\n            try {\n                data = JSON.parse(data.replace(sessionId, ''));\n            } catch (e) {\n                console.warn(e);\n                data = {};\n            }\n\n            if (data.action === 'remove') {\n                var index = products.findIndex(function (product) {\n                    return product.id === data.id;\n                });\n                if (index !== -1) {\n                    products.splice(index, 1);\n                }\n                return;\n            }\n\n            var foundProduct = products.filter(function (product) {\n                return product.id === data.id;\n            })[0];\n\n            if (foundProduct) {\n                Object.assign(foundProduct, data);\n            }\n        });\n\n        document.addEventListener('DOMContentLoaded', function (event) {\n            postMessageToParent({type: 'IFRAME_HEIGHT', height: document.body.scrollHeight + 40});\n        });\n\n        function postMessageToParent(obj) {\n            parent.postMessage(sessionId + JSON.stringify(obj), '*');\n        }\n\n        paypal.Buttons(buttons).render('#paypal-button-container');\n    })();\n<\/script>\n"
     },
-    15464: function(t, e, n) {
+    15522: function(t, e, n) {
         "use strict";
         function i(t) {
             this.$btn = t
@@ -11976,7 +12248,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaymentService = i
     },
-    15465: function(t, e, n) {
+    15523: function(t, e, n) {
         "use strict";
         var i = {
             add: function(products) {
@@ -11991,7 +12263,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         };
         t.exports = i
     },
-    15466: function(t, e, n) {
+    15524: function(t, e, n) {
         "use strict";
         function i() {
             this.$dialog = $(),
@@ -12057,15 +12329,15 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PayPalCurrencyWarning = i
     },
-    15467: function(t, e, n) {
+    15525: function(t, e, n) {
         "use strict";
         function i(t) {
             this.paymentConfig = t,
             this.eventListener = this.listener.bind(this)
         }
-        var a = n(4693)
-          , o = n(1262)
-          , s = n(4695);
+        var a = n(4718)
+          , o = n(1271)
+          , s = n(4720);
         t.exports = i,
         i.prototype.subscribe = function t() {
             window.addEventListener("message", this.eventListener)
@@ -12111,13 +12383,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaymentEventListener = i
     },
-    15468: function(t, e, n) {
+    15526: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(4694)
-          , o = n(1262)
-          , s = n(4696);
-        window._npCartInit = function() {
+          , a = n(4719)
+          , o = n(1271)
+          , s = n(4721).default;
+        window._npCartInit = async function() {
             function t(t) {
                 if (t.preventDefault(),
                 t.stopPropagation(),
@@ -12133,10 +12405,11 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
             i("body").on("click", ".u-add-to-cart-link", t);
             var n = o.getCart();
-            n.$cart.length && s.getModel().load((function(t, data) {
+            if (n.$cart.length) {
+                var model = s.getModel()
+                  , data = await model.load();
                 data && data.products && n.init(data)
             }
-            ))
         }
         ,
         i((function() {
@@ -12144,7 +12417,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15469: function(t, e, n) {
+    15527: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -12165,21 +12438,21 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15470: function(t, e, n) {
+    15528: function(t, e, n) {
         "use strict";
         Object.defineProperty(e, "__esModule", {
             value: true
         });
-        var i = n(4698)
+        var i = n(4723)
           , a = n.n(i)
-          , o = n(15471)
+          , o = n(15529)
           , s = n.n(o)
-          , u = n(4699)
-          , l = n(15472)
-          , c = n(4696)
-          , f = n(15475)
+          , u = n(4724)
+          , l = n(15530)
+          , c = n(4721)
+          , f = n(15533)
           , h = n(29)
-          , ProductBadge = n(1260)
+          , ProductBadge = n(1269)
           , p = new u.a;
         p.attachHandler((async function(id, page, sorting, t) {
             if (page = parseFloat(page) || 1,
@@ -12273,7 +12546,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15471: function(t, e, n) {
+    15529: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.getActiveSorting = function(list) {
@@ -12287,15 +12560,15 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.ProductsSortingView = i
     },
-    15472: function(t, e, n) {
+    15530: function(t, e, n) {
         "use strict";
-        var i = n(4700)
-          , a = n(1263)
-          , o = n(15473)
-          , s = n(4701)
-          , u = n(15474)
-          , Currency = n(297)
-          , ProductBadge = n(1260);
+        var i = n(4725)
+          , a = n(1272)
+          , o = n(15531)
+          , s = n(4726)
+          , u = n(15532)
+          , Currency = n(300)
+          , ProductBadge = n(1269);
         class ProductsBuilder extends i.a {
             constructor(list, model) {
                 super(list.attr("data-products-id"), list, {
@@ -12387,9 +12660,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         e.a = ProductsBuilder,
         window.ProductsBuilder = ProductsBuilder
     },
-    15473: function(t, e, n) {
+    15531: function(t, e, n) {
         "use strict";
-        var i = n(1263);
+        var i = n(1272);
         class a extends i.a {
             getIterableCategories() {
                 return this.data.categoriesData || []
@@ -12403,11 +12676,11 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = a
     },
-    15474: function(t, e, n) {
+    15532: function(t, e, n) {
         "use strict";
-        var i = n(4702)
+        var i = n(4727)
           , a = n.n(i)
-          , o = n(4701);
+          , o = n(4726);
         class s extends o.a {
             getPathToItem() {
                 return this.context.isQuickPreview ? super.getPathToItem() : this.data.link
@@ -12420,10 +12693,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = s
     },
-    15475: function(t, e, n) {
+    15533: function(t, e, n) {
         "use strict";
-        var i = n(4703)
-          , a = n(4698)
+        var i = n(4728)
+          , a = n(4723)
           , o = n.n(a);
         class s extends i.a {
             constructor(...props) {
@@ -12448,18 +12721,18 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         e.a = s,
         window.ProductsView = s
     },
-    15476: function(t, e, n) {
+    15534: function(t, e, n) {
         "use strict";
         Object.defineProperty(e, "__esModule", {
             value: true
         });
-        var i = n(4699)
-          , a = n(15477)
-          , o = n(15478)
-          , s = n(15479)
-          , u = n(15480)
+        var i = n(4724)
+          , a = n(15535)
+          , o = n(15536)
+          , s = n(15537)
+          , u = n(15538)
           , l = n.n(u)
-          , c = n(15481)
+          , c = n(15539)
           , f = n.n(c)
           , h = n(29)
           , p = new i.a;
@@ -12501,11 +12774,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
             )),
             h(".u-blog .u-select-sorting").on("change", (function(t) {
-                var list = h(t.currentTarget).closest(".u-blog")
-                  , id = list.attr("data-blog-id")
-                  , sorting = this.value
-                  , e = l.a.getActiveCategory(list);
-                p.navigate(id, 1, sorting, e)
+                var list = h(t.currentTarget).closest(".u-blog");
+                if (!window._npIsCms && !list.hasClass("u-cms")) {
+                    var id = list.attr("data-blog-id")
+                      , sorting = this.value
+                      , e = l.a.getActiveCategory(list);
+                    p.navigate(id, 1, sorting, e)
+                }
             }
             )),
             h(".u-blog .u-select-categories").on("change", (function(t) {
@@ -12534,12 +12809,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15477: function(t, e, n) {
+    15535: function(t, e, n) {
         "use strict";
-        var i = n(1263)
-          , a = n(4702)
+        var i = n(1272)
+          , a = n(4727)
           , o = n.n(a)
-          , s = n(4700);
+          , s = n(4725);
         class BlogBuilder extends s.a {
             constructor(list, model) {
                 super(list.attr("data-blog-id"), list, {
@@ -12611,9 +12886,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = BlogBuilder
     },
-    15478: function(t, e, n) {
+    15536: function(t, e, n) {
         "use strict";
-        var i = n(4697);
+        var i = n(4722);
         class a extends i.a {
             static getModel(t=false) {
                 return this.instance && !t || (this.instance = new this("blog/blog.json",window._npBlogJsonUrl,( () => {
@@ -12629,9 +12904,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = a
     },
-    15479: function(t, e, n) {
+    15537: function(t, e, n) {
         "use strict";
-        var i = n(4703);
+        var i = n(4728);
         class a extends i.a {
             constructor(...props) {
                 super("blog/blog.html", ...props)
@@ -12647,7 +12922,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = a
     },
-    15480: function(t, e, n) {
+    15538: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.getActiveCategory = function(list) {
@@ -12660,7 +12935,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.BlogCategoryView = i
     },
-    15481: function(t, e, n) {
+    15539: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.getActiveSorting = function(list) {
@@ -12674,12 +12949,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.BlogSortingView = i
     },
-    15482: function(t, e, n) {
+    15540: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(15483)
-          , o = n(15484)
-          , s = n(15485);
+          , a = n(15541)
+          , o = n(15542)
+          , s = n(15543);
         i(window).on("load", (function() {
             var url;
             if (s.subscribe(),
@@ -12719,14 +12994,14 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15483: function(t, e, n) {
+    15541: function(t, e, n) {
         "use strict";
         function i(t, e) {
             this._searchUrl = Const.siteSearchUrl,
             this._searchWord = t,
             this._searchToken = e
         }
-        var Const = n(340);
+        var Const = n(342);
         t.exports = i,
         i.prototype.load = function(t) {
             var e = this._searchUrl + "?token=" + this._searchToken + "&s=" + this._searchWord;
@@ -12739,7 +13014,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             ))
         }
     },
-    15484: function(t, e, n) {
+    15542: function(t, e, n) {
         "use strict";
         function i(data, t, e) {
             this._data = JSON.parse(data),
@@ -12805,9 +13080,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             ))
         }
     },
-    15485: function(t, e, n) {
+    15543: function(t, e, n) {
         "use strict";
-        const Utils = n(472);
+        const Utils = n(477);
         class i {
             constructor(t) {
                 this.id = Utils.createGuid(),
@@ -12899,11 +13174,11 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         t.exports = i
     },
-    15486: function(t, e, n) {
+    15544: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(15487)
-          , o = n(15488);
+          , a = n(15545)
+          , o = n(15546);
         i((function() {
             i(".u-calendar").each((function() {
                 var calendar = i(this), t = calendar.attr("data-calendar-token"), e = new o(calendar,t,[]), n;
@@ -12923,13 +13198,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    15487: function(t, e, n) {
+    15545: function(t, e, n) {
         "use strict";
         function i(t) {
             this._calendarTimeSlotsUrl = Const.calendarTimeSlotsUrl,
             this._token = t
         }
-        var Const = n(340);
+        var Const = n(342);
         t.exports = i,
         i.prototype.load = function(t) {
             if (!this._token)
@@ -12956,7 +13231,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.TimeSlotsLoader = i
     },
-    15488: function(t, e, n) {
+    15546: function(t, e, n) {
         "use strict";
         function i(calendar, t, e) {
             this._calendar = calendar,
@@ -12973,33 +13248,35 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             delete n.recaptchaResponse),
             t.data = JSON.stringify(n)
         }
-        function o(t, e) {
-            var n = new Date(t.startDateTime)
-              , i = new Date(t.endDateTime)
-              , a = "Confirm booking"
-              , o = h(n, "h:MM - ");
-            return o += h(i, "h:MM TT, "),
-            o += h(n, "dddd dS mmmm, yyyy "),
-            {
-                title: a,
-                time: o += "(" + e + ")"
+        function o(t, timeZone) {
+            var lang = $("html").attr("lang") || "en", e = new Date(t.startDateTime), n = new Date(t.endDateTime), i = Intl.DateTimeFormat(lang, {
+                hour: "numeric",
+                minute: "numeric"
+            }), a = Intl.DateTimeFormat(lang, {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }), o, s, u, l;
+            return {
+                title: "Confirm booking",
+                time: `${i.format(e).replace(/[^\d:.]+$/, "")} - ${i.format(n)}, ${a.format(e)} ${timeZone = timeZone ? `(${timeZone})` : ""}`
             }
         }
         function s(t, e) {
             return t.getFullYear() === e.getFullYear() && t.getMonth() === e.getMonth() && t.getDate() === e.getDate()
         }
-        var u = n(1138)
-          , l = n(4691)
-          , c = n(15489)
-          , f = n(15490)
-          , h = n(4692);
+        var u = n(1145)
+          , l = n(4717)
+          , c = n(15547)
+          , f = n(15548);
         t.exports = i;
-        var p = "added"
-          , m = "conflict"
-          , g = "error"
-          , v = "loading"
-          , y = "not_found"
-          , w = "fetching_error";
+        var h = "added"
+          , p = "conflict"
+          , m = "error"
+          , g = "loading"
+          , v = "not_found"
+          , y = "fetching_error";
         i.prototype.setSlots = function(t) {
             this._slots = t
         }
@@ -13072,7 +13349,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             var t = this._calendar.find(".u-calendar-slots-message");
             t.length || (t = $('<div class="u-calendar-slots-message" />'),
             this._calendar.find(".u-calendar-time-list").before(t)),
-            type === v ? t.text("Loading...") : type === y ? t.text(this._calendar.find(".u-calendar-no-slots-message").text()) : type === w && t.text("The error occurred while fetching available appointments.")
+            type === g ? t.text("Loading...") : type === v ? t.text(this._calendar.find(".u-calendar-no-slots-message").text()) : type === y && t.text("The error occurred while fetching available appointments.")
         }
         ,
         i.prototype.clearMessage = function() {
@@ -13087,8 +13364,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
               , i = this._calendar.find(".u-calendar-error-message")
               , u = container.find(".u-calendar-time-list")
               , l = this._calendar.find(".qs-datepicker-container")
-              , h = container.find(".u-calendar-timezone");
-            h.text(t);
+              , m = container.find(".u-calendar-timezone");
+            m.text(t);
             var g = [];
             if (this._slots && (g = this._slots.filter((function(t, index) {
                 return !!t.available && (t.data = "",
@@ -13107,15 +13384,15 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 if (g.length) {
                     var v = u.find(".u-calendar-time-slot.fake");
                     g.forEach(function(s) {
-                        var h = ""
+                        var m = ""
                           , g = new Date(s.startDateTime);
-                        h = g.getHours() + ":" + ("0" + g.getMinutes()).slice(-2);
+                        m = g.getHours() + ":" + ("0" + g.getMinutes()).slice(-2);
                         var y = v.clone();
                         y.removeClass("u-hidden fake"),
                         y.attr("data-slot-options", JSON.stringify(s)),
                         y.attr("data-slot-index", s.index),
                         y.attr("data-slot-date", s.startDateTime),
-                        y.text(h);
+                        y.text(m);
                         var w = new c(this._token)
                           , b = function(t, date) {
                             this._slots = this._slots.slice(0, t).concat(this._slots.slice(t + 1)),
@@ -13126,10 +13403,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                             s.preventDefault(),
                             s.stopPropagation();
                             var c = $(this)
-                              , h = JSON.parse(c.attr("data-slot-options") || "{}")
+                              , m = JSON.parse(c.attr("data-slot-options") || "{}")
                               , g = c.attr("data-popup-info");
                             if (!g) {
-                                var v = o(h, t), dialog = new f(c,v), y;
+                                var v = o(m, t), dialog = new f(c,v), y;
                                 if (dialog.create(),
                                 dialog.isCreated())
                                     return dialog.open(),
@@ -13144,18 +13421,18 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                             l.addClass("disabled");
                             var C = c.attr("data-slot-index")
                               , S = c.attr("data-slot-date");
-                            a(h, g),
-                            w.add(h, (function(t) {
+                            a(m, g),
+                            w.add(m, (function(t) {
                                 var a = i;
-                                t === p ? (c.remove(),
+                                t === h ? (c.remove(),
                                 b(Number(C), new Date(S)),
-                                a = e) : t === m && (c.remove(),
+                                a = e) : t === p && (c.remove(),
                                 b(Number(C), new Date(S)),
                                 a = n);
                                 var o = a.find(".u-calendar-message-close");
                                 o.length || (o = $('<a href="#" class="u-calendar-message-close">x</a>'),
                                 a.append(o)),
-                                a.show(),
+                                a.css("display", "flex"),
                                 o.one("click", (function(t) {
                                     t.preventDefault(),
                                     t.stopPropagation(),
@@ -13178,19 +13455,19 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 l.find(".qs-num.qs-active").removeClass("qs-active").addClass("qs-disabled");
             if (this._calendar.length && this._calendar.is(":visible") && l.length) {
                 const t = l.outerHeight()
-                  , e = h.outerHeight(true);
+                  , e = m.outerHeight(true);
                 u.css("height", t - e + "px")
             }
         }
         ,
         window.CalendarBuilder = i
     },
-    15489: function(t, e, n) {
+    15547: function(t, e, n) {
         "use strict";
         function i(t) {
             this._token = t
         }
-        const Const = n(340);
+        const Const = n(342);
         t.exports = i,
         i.prototype.add = function(data, t) {
             fetch(Const.calendarAddAppointmentUrl, {
@@ -13216,18 +13493,19 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.Appointment = i
     },
-    15490: function(t, e, n) {
+    15548: function(t, e, n) {
         "use strict";
         function i(t, e) {
             this._slot = t,
             this._slotInfoText = e,
             this._dialogElement = null,
             this._dialog = null,
+            this.formClick = this._formClick.bind(this),
             this.formSubmit = this._formSubmit.bind(this),
             this.slotSubmit = this._slotSubmit.bind(this)
         }
-        var Dialog = n(304)
-          , FormMessage = n(1259);
+        var Dialog = n(307)
+          , FormMessage = n(1268);
         t.exports = i,
         i.prototype.isCreated = function() {
             return this._dialog
@@ -13247,10 +13525,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         i.prototype.open = function() {
             this.buildCaption();
             var form = this._dialogElement.find("form");
-            form.length && (form.off("submit"),
-            form.submit(this.formSubmit),
-            form.find(".u-btn-submit").off("click"),
-            form.find(".u-btn-submit").click(this.formSubmit)),
+            form.length && (form.off("submit").submit(this.formSubmit),
+            form.find(".u-btn-submit").off("click").click(this.formClick)),
             this._dialogElement.find(".u-btn:not(.u-btn-submit)").click(function(t) {
                 t.preventDefault(),
                 t.stopPropagation(),
@@ -13282,6 +13558,15 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             window.recaptchaObject.executeContact(e)
         }
         ,
+        i.prototype._formClick = function(t) {
+            t.preventDefault(),
+            t.stopPropagation();
+            var form = $(t.target).closest("form");
+            form.find(".u-form-send-success").hide(),
+            form.find(".u-form-send-error").hide(),
+            form.find('input[type="submit"]').click()
+        }
+        ,
         i.prototype._slotSubmit = function(data) {
             this._dialog.close(),
             this._slot.attr("data-popup-info", JSON.stringify(data || {})),
@@ -13300,8 +13585,8 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.CalendarDialog = i
     },
-    15491: function(t, e) {},
-    192: function(t, e, n) {
+    15549: function(t, e) {},
+    193: function(t, e, n) {
         "use strict";
         function i() {
             throw new Error("setTimeout has not been defined")
@@ -13439,7 +13724,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             CUSTOM: "CUSTOM"
         }
     },
-    268: function(t, e, n) {
+    271: function(t, e, n) {
         "use strict";
         function i(t) {
             return btoa(encodeURIComponent(JSON.stringify(t)))
@@ -13453,9 +13738,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
     29: function(t, e) {
         t.exports = jQuery
     },
-    297: function(t, e, n) {
+    300: function(t, e, n) {
         "use strict";
-        var i = n(522)
+        var i = n(527)
           , Currency = t.exports
           , a = i.reduce((function(t, e) {
             return t[e.code] = e,
@@ -13518,7 +13803,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.Currency = Currency
     },
-    304: function(t, e, n) {
+    307: function(t, e, n) {
         "use strict";
         function Dialog(t, e) {
             this._openClass = "u-dialog-open",
@@ -13560,7 +13845,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return this._dialog.attr("data-dialog-show-interval") || 3e3
         }
     },
-    305: function(t, e, n) {
+    308: function(t, e, n) {
         "use strict";
         function Accordion(link) {
             this.selector = ".u-accordion",
@@ -13637,7 +13922,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             t && t.length && window._npScrollAnchor && window._npScrollAnchor.scroll(t)
         }
     },
-    340: function(t, e, n) {
+    342: function(t, e, n) {
         "use strict";
         var Const = t.exports = {};
         Const.formActionUrl = ["https://forms.", "n", "i", "c", "e", "p", "a", "g", "e", "srv.com/"].join(""),
@@ -13648,7 +13933,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         Const.calendarTimeSlotsUrl = "https://service.nicepagesrv.com/calendar/v1/get-timeslots",
         Const.calendarAddAppointmentUrl = "https://service.nicepagesrv.com/calendar/v1/add-appointment"
     },
-    342: function(t, e, n) {
+    344: function(t, e, n) {
         "use strict";
         (function(t) {
             function i(id, t) {
@@ -13694,13 +13979,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 ), e))
             }
             ,
-            n(690),
+            n(692),
             e.setImmediate = "undefined" != typeof self && self.setImmediate || void 0 !== t && t.setImmediate || this && this.setImmediate,
             e.clearImmediate = "undefined" != typeof self && self.clearImmediate || void 0 !== t && t.clearImmediate || this && this.clearImmediate
         }
         ).call(e, n(89))
     },
-    351: function(t, e, n) {
+    353: function(t, e, n) {
         "use strict";
         var ProductsUtils = t.exports;
         ProductsUtils.sort = function sort(items, sorting, t) {
@@ -13738,7 +14023,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             )) : items
         }
     },
-    370: function(t, e, n) {
+    372: function(t, e, n) {
         "use strict";
         function i() {
             this.hint = null,
@@ -13768,7 +14053,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.AnimationFactory = i
     },
-    371: function(t, e, n) {
+    373: function(t, e, n) {
         "use strict";
         function i(t, e) {
             if (!t)
@@ -13805,7 +14090,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 return t
             }
         }
-        var u = n(534);
+        var u = n(539);
         t.exports = i;
         var l = 100
           , c = 500
@@ -13964,7 +14249,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return this.info && this.isInOutAnimation() ? c : 0
         }
     },
-    372: function(t, e, n) {
+    374: function(t, e, n) {
         "use strict";
         function CountdownUpdater(t) {
             this.$dom = t,
@@ -14092,7 +14377,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return $(".u-countdown")
         }
     },
-    373: function(t, e, n) {
+    375: function(t, e, n) {
         "use strict";
         function TabsControl(t) {
             this.tabsSelector = ".u-tabs",
@@ -14164,11 +14449,11 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = TabsControl,
         window.TabsControl = TabsControl
     },
-    382: function(t, e) {},
-    4689: function(t, e, n) {
+    385: function(t, e) {},
+    4715: function(t, e, n) {
         "use strict";
         var i = n(29)
-          , a = n(4690)
+          , a = n(4716)
           , o = t.exports;
         window.CookiesConsent = o,
         o.COOKIE_NAME = "u-gdpr-cookie",
@@ -14214,7 +14499,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return n && n[e]
         }
     },
-    4690: function(t, e, n) {
+    4716: function(t, e, n) {
         "use strict";
         /*!
  * JavaScript Cookie v2.2.1
@@ -14315,7 +14600,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ))
     },
-    4691: function(t, e, n) {
+    4717: function(t, e, n) {
         "use strict";
         var i, a;
         i = window,
@@ -15083,274 +15368,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         !void (t.exports = a())
     },
-    4692: function(t, e, n) {
-        "use strict";
-        function i(t) {
-            return i = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function t(e) {
-                return typeof e
-            }
-            : function t(e) {
-                return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
-            }
-            ,
-            i(t)
-        }
-        !function(n) {
-            var a = arguments, o = (s = /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g,
-            u = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
-            l = /[^-+\dA-Z]/g,
-            function(date, t, e, n) {
-                if (1 !== a.length || "string" !== m(date) || /\d/.test(date) || (t = date,
-                date = void 0),
-                (date = date || 0 === date ? date : new Date)instanceof Date || (date = new Date(date)),
-                isNaN(date))
-                    throw TypeError("Invalid date");
-                var i = (t = String(o.masks[t] || t || o.masks.default)).slice(0, 4);
-                "UTC:" !== i && "GMT:" !== i || (t = t.slice(4),
-                e = true,
-                "GMT:" === i && (n = true));
-                var g = function t() {
-                    return e ? "getUTC" : "get"
-                }
-                  , v = function d() {
-                    return date[g() + "Date"]()
-                }
-                  , D = function D() {
-                    return date[g() + "Day"]()
-                }
-                  , y = function t() {
-                    return date[g() + "Month"]()
-                }
-                  , w = function t() {
-                    return date[g() + "FullYear"]()
-                }
-                  , b = function t() {
-                    return date[g() + "Hours"]()
-                }
-                  , C = function t() {
-                    return date[g() + "Minutes"]()
-                }
-                  , S = function t() {
-                    return date[g() + "Seconds"]()
-                }
-                  , x = function t() {
-                    return date[g() + "Milliseconds"]()
-                }
-                  , _ = function t() {
-                    return e ? 0 : date.getTimezoneOffset()
-                }
-                  , A = function t() {
-                    return h(date)
-                }
-                  , T = function t() {
-                    return p(date)
-                }
-                  , E = {
-                    d: function d() {
-                        return v()
-                    },
-                    dd: function t() {
-                        return c(v())
-                    },
-                    ddd: function t() {
-                        return o.i18n.dayNames[D()]
-                    },
-                    DDD: function t() {
-                        return f({
-                            y: w(),
-                            m: y(),
-                            d: v(),
-                            _: g(),
-                            dayName: o.i18n.dayNames[D()],
-                            short: true
-                        })
-                    },
-                    dddd: function t() {
-                        return o.i18n.dayNames[D() + 7]
-                    },
-                    DDDD: function t() {
-                        return f({
-                            y: w(),
-                            m: y(),
-                            d: v(),
-                            _: g(),
-                            dayName: o.i18n.dayNames[D() + 7]
-                        })
-                    },
-                    m: function t() {
-                        return y() + 1
-                    },
-                    mm: function t() {
-                        return c(y() + 1)
-                    },
-                    mmm: function t() {
-                        return o.i18n.monthNames[y()]
-                    },
-                    mmmm: function t() {
-                        return o.i18n.monthNames[y() + 12]
-                    },
-                    yy: function t() {
-                        return String(w()).slice(2)
-                    },
-                    yyyy: function t() {
-                        return c(w(), 4)
-                    },
-                    h: function t() {
-                        return b() % 12 || 12
-                    },
-                    hh: function t() {
-                        return c(b() % 12 || 12)
-                    },
-                    H: function t() {
-                        return b()
-                    },
-                    HH: function t() {
-                        return c(b())
-                    },
-                    M: function t() {
-                        return C()
-                    },
-                    MM: function t() {
-                        return c(C())
-                    },
-                    s: function t() {
-                        return S()
-                    },
-                    ss: function t() {
-                        return c(S())
-                    },
-                    l: function t() {
-                        return c(x(), 3)
-                    },
-                    L: function t() {
-                        return c(Math.floor(x() / 10))
-                    },
-                    t: function t() {
-                        return b() < 12 ? o.i18n.timeNames[0] : o.i18n.timeNames[1]
-                    },
-                    tt: function t() {
-                        return b() < 12 ? o.i18n.timeNames[2] : o.i18n.timeNames[3]
-                    },
-                    T: function t() {
-                        return b() < 12 ? o.i18n.timeNames[4] : o.i18n.timeNames[5]
-                    },
-                    TT: function t() {
-                        return b() < 12 ? o.i18n.timeNames[6] : o.i18n.timeNames[7]
-                    },
-                    Z: function t() {
-                        return n ? "GMT" : e ? "UTC" : (String(date).match(u) || [""]).pop().replace(l, "").replace(/GMT\+0000/g, "UTC")
-                    },
-                    o: function t() {
-                        return (_() > 0 ? "-" : "+") + c(100 * Math.floor(Math.abs(_()) / 60) + Math.abs(_()) % 60, 4)
-                    },
-                    p: function t() {
-                        return (_() > 0 ? "-" : "+") + c(Math.floor(Math.abs(_()) / 60), 2) + ":" + c(Math.floor(Math.abs(_()) % 60), 2)
-                    },
-                    S: function t() {
-                        return ["th", "st", "nd", "rd"][v() % 10 > 3 ? 0 : (v() % 100 - v() % 10 != 10) * v() % 10]
-                    },
-                    W: function t() {
-                        return A()
-                    },
-                    WW: function t() {
-                        return c(A())
-                    },
-                    N: function t() {
-                        return T()
-                    }
-                };
-                return t.replace(s, (function(t) {
-                    return t in E ? E[t]() : t.slice(1, t.length - 1)
-                }
-                ))
-            }
-            ), s, u, l;
-            o.masks = {
-                default: "ddd mmm dd yyyy HH:MM:ss",
-                shortDate: "m/d/yy",
-                paddedShortDate: "mm/dd/yyyy",
-                mediumDate: "mmm d, yyyy",
-                longDate: "mmmm d, yyyy",
-                fullDate: "dddd, mmmm d, yyyy",
-                shortTime: "h:MM TT",
-                mediumTime: "h:MM:ss TT",
-                longTime: "h:MM:ss TT Z",
-                isoDate: "yyyy-mm-dd",
-                isoTime: "HH:MM:ss",
-                isoDateTime: "yyyy-mm-dd'T'HH:MM:sso",
-                isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
-                expiresHeaderFormat: "ddd, dd mmm yyyy HH:MM:ss Z"
-            },
-            o.i18n = {
-                dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-            };
-            var c = function t(e, n) {
-                for (e = String(e),
-                n = n || 2; e.length < n; )
-                    e = "0" + e;
-                return e
-            }
-              , f = function t(e) {
-                var n = e.y
-                  , i = e.m
-                  , d = e.d
-                  , a = e._
-                  , o = e.dayName
-                  , s = e.short
-                  , u = void 0 !== s && s
-                  , l = new Date
-                  , c = new Date;
-                c.setDate(c[a + "Date"]() - 1);
-                var f = new Date;
-                f.setDate(f[a + "Date"]() + 1);
-                var h = function t() {
-                    return l[a + "Date"]()
-                }, p = function t() {
-                    return l[a + "Month"]()
-                }, m, g = function t() {
-                    return c[a + "Date"]()
-                }, v = function t() {
-                    return c[a + "Month"]()
-                }, y = function t() {
-                    return c[a + "FullYear"]()
-                }, w = function t() {
-                    return f[a + "Date"]()
-                }, b = function t() {
-                    return f[a + "Month"]()
-                }, C = function t() {
-                    return f[a + "FullYear"]()
-                };
-                return function t() {
-                    return l[a + "FullYear"]()
-                }() === n && p() === i && h() === d ? u ? "Tdy" : "Today" : y() === n && v() === i && g() === d ? u ? "Ysd" : "Yesterday" : C() === n && b() === i && w() === d ? u ? "Tmw" : "Tomorrow" : o
-            }
-              , h = function t(date) {
-                var e = new Date(date.getFullYear(),date.getMonth(),date.getDate());
-                e.setDate(e.getDate() - (e.getDay() + 6) % 7 + 3);
-                var n = new Date(e.getFullYear(),0,4);
-                n.setDate(n.getDate() - (n.getDay() + 6) % 7 + 3);
-                var i = e.getTimezoneOffset() - n.getTimezoneOffset();
-                e.setHours(e.getHours() - i);
-                var a = (e - n) / 6048e5;
-                return 1 + Math.floor(a)
-            }
-              , p = function t(date) {
-                var e = date.getDay();
-                return 0 === e && (e = 7),
-                e
-            }
-              , m = function t(e) {
-                return null === e ? "null" : void 0 === e ? "undefined" : "object" !== i(e) ? i(e) : Array.isArray(e) ? "array" : {}.toString.call(e).slice(8, -1).toLowerCase()
-            };
-            "function" == typeof define && define.amd ? define((function() {
-                return o
-            }
-            )) : "object" === i(e) ? t.exports = o : n.dateFormat = o
-        }(void 0)
-    },
-    4693: function(t, e, n) {
+    4718: function(t, e, n) {
         "use strict";
         function i(t) {
             this.setDialog(t)
@@ -15414,7 +15432,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaymentMessage = i
     },
-    4694: function(t, e, n) {
+    4719: function(t, e, n) {
         "use strict";
         function i(t) {
             this.$btn = t
@@ -15444,7 +15462,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaymentProduct = i
     },
-    4695: function(t, e, n) {
+    4720: function(t, e, n) {
         "use strict";
         function i() {
             this.pageName = "thank-you-page"
@@ -15460,12 +15478,12 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.PaymentThankYou = i
     },
-    4696: function(t, e, n) {
+    4721: function(t, e, n) {
         "use strict";
         Object.defineProperty(e, "__esModule", {
             value: true
         });
-        var i = n(4697);
+        var i = n(4722);
         class a extends i.a {
             static getModel(t=false) {
                 return this.instance && !t || (this.instance = new this("products/products.json",window._npProductsJsonUrl,( () => {
@@ -15482,7 +15500,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         e.default = a,
         window.ProductsModel = a
     },
-    4697: function(t, e, n) {
+    4722: function(t, e, n) {
         "use strict";
         class i {
             constructor(t, e, n) {
@@ -15507,7 +15525,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = i
     },
-    4698: function(t, e, n) {
+    4723: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.findNearestCategories = function(list) {
@@ -15553,7 +15571,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.ProductsCategoryView = i
     },
-    4699: function(t, e, n) {
+    4724: function(t, e, n) {
         "use strict";
         var i = n(29);
         class a {
@@ -15609,9 +15627,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         e.a = a,
         window.AppRouter = a
     },
-    4700: function(t, e, n) {
+    4725: function(t, e, n) {
         "use strict";
-        const ProductsUtils = n(351);
+        const ProductsUtils = n(353);
         class i {
             constructor(t, list, model) {
                 this.list = list,
@@ -15668,7 +15686,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = i
     },
-    4701: function(t, e, n) {
+    4726: function(t, e, n) {
         "use strict";
         class i {
             constructor(t, e, data) {
@@ -15715,7 +15733,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = i
     },
-    4702: function(t, e, n) {
+    4727: function(t, e, n) {
         "use strict";
         var i = n(29);
         i((function() {
@@ -15763,9 +15781,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             ))
         }
     },
-    4703: function(t, e, n) {
+    4728: function(t, e, n) {
         "use strict";
-        const PaginationBuilder = n(844);
+        const PaginationBuilder = n(847);
         class i {
             constructor(t, list) {
                 this.listHref = t,
@@ -15843,7 +15861,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         e.a = i
     },
-    472: function(t, e, n) {
+    477: function(t, e, n) {
         "use strict";
         var Utils = t.exports;
         Utils.getQueryParam = function(t) {
@@ -15877,7 +15895,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return Utils.npCreateGuid()
         }
     },
-    522: function(t, e) {
+    527: function(t, e) {
         t.exports = [{
             name: "United States dollar",
             code: "USD",
@@ -16551,7 +16569,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             locale: "en-KG"
         }]
     },
-    534: function(t, e, n) {
+    539: function(t, e, n) {
         "use strict";
         var i;
         t.exports.requestAnimationFrame = function t(e) {
@@ -16559,7 +16577,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             void 0)
         }
     },
-    535: function(t, e, n) {
+    540: function(t, e, n) {
         "use strict";
         function i(t, section) {
             this.element = t,
@@ -16586,7 +16604,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         t.exports = i,
         window.AnimationInfo = i
     },
-    536: function(t, e, n) {
+    541: function(t, e, n) {
         "use strict";
         function CountdownAnimate(t) {
             if (this.$dom = t,
@@ -16649,7 +16667,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return this.$dom.find(".start-val").text()
         }
     },
-    558: function(t, e, n) {
+    562: function(t, e, n) {
         "use strict";
         function HorizontalLayoutSlider(slider, t) {
             if (slider && slider.length) {
@@ -16748,7 +16766,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window._npHorizontalLayoutSlider = HorizontalLayoutSlider
     },
-    559: function(t, e, n) {
+    563: function(t, e, n) {
         "use strict";
         var i = t.exports = function t() {
             this.expr = null,
@@ -16779,7 +16797,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             ))
         }
     },
-    619: function(t, e) {
+    623: function(t, e) {
         t.exports = [{
             code: "US",
             name: "United States"
@@ -17535,7 +17553,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             name: "Zimbabwe"
         }]
     },
-    683: function(t, e) {
+    685: function(t, e) {
         var e = void 0
           , t = void 0;
         (function() {
@@ -17656,7 +17674,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ).call(window)
     },
-    690: function(t, e, n) {
+    692: function(t, e, n) {
         "use strict";
         (function(t, e) {
             !function(t, n) {
@@ -17781,9 +17799,9 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 }
             }("undefined" == typeof self ? void 0 === t ? this : t : self)
         }
-        ).call(e, n(89), n(192))
+        ).call(e, n(89), n(193))
     },
-    719: function(t, e, n) {
+    722: function(t, e, n) {
         "use strict";
         function i(t) {
             var e = t.length;
@@ -17841,7 +17859,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         h["-".charCodeAt(0)] = 62,
         h["_".charCodeAt(0)] = 63
     },
-    720: function(t, e, n) {
+    723: function(t, e, n) {
         "use strict";
         e.read = function(t, e, n, i, a) {
             var o, s, u = 8 * a - i - 1, l = (1 << u) - 1, c = l >> 1, f = -7, h = n ? a - 1 : 0, d = n ? -1 : 1, p = t[e + h];
@@ -17895,14 +17913,14 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             t[n + m - d] |= 128 * g
         }
     },
-    721: function(t, e, n) {
+    724: function(t, e, n) {
         "use strict";
         var i = {}.toString;
         t.exports = Array.isArray || function(t) {
             return "[object Array]" == i.call(t)
         }
     },
-    828: function(t, e, n) {
+    831: function(t, e, n) {
         "use strict";
         var i = t.exports;
         i.apply = function(t, state) {
@@ -17962,21 +17980,21 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         window.StepCss = i
     },
-    832: function(t, e, n) {
+    835: function(t, e, n) {
         "use strict";
-        var i = n(370).instance();
-        i.registerAnimation(n(833)),
+        var i = n(372).instance();
         i.registerAnimation(n(836)),
-        i.registerAnimation(n(371))
+        i.registerAnimation(n(839)),
+        i.registerAnimation(n(373))
     },
-    833: function(t, e, n) {
+    836: function(t, e, n) {
         "use strict";
         function i(t, e) {
             this.info = t,
             this.hint = e,
             this.timeoutId = null
         }
-        var a = n(834);
+        var a = n(837);
         t.exports = i,
         i.isMatch = function(t) {
             return t && "counter" === t.name
@@ -18072,7 +18090,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return 0
         }
     },
-    834: function(t, e, n) {
+    837: function(t, e, n) {
         "use strict";
         function i(t) {
             this.initialize(t)
@@ -18089,7 +18107,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 countUp.start(i)
             }
         }
-        n(835),
+        n(838),
         i.prototype.initialize = function t(e) {
             if (!this.countUp && e.element) {
                 var n = e.startVal
@@ -18116,7 +18134,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         ,
         t.exports = i
     },
-    835: function(t, e) {
+    838: function(t, e) {
         var e = void 0
           , t = void 0;
         (function() {
@@ -18272,13 +18290,13 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         ).call(window)
     },
-    836: function(t, e, n) {
+    839: function(t, e, n) {
         "use strict";
         function i() {
             a.apply(this, arguments),
             this.backstageClass = ["backstage", "u-backstage-hidden"]
         }
-        var a = n(371);
+        var a = n(373);
         Object.assign(i.prototype, a.prototype),
         t.exports = i,
         i.isMatch = function(t) {
@@ -18290,7 +18308,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             return new i(t,e)
         }
     },
-    844: function(t, e, n) {
+    847: function(t, e, n) {
         "use strict";
         function PaginationBuilder(pagination, data, t) {
             this.data = data,
@@ -18436,7 +18454,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
         }
         t.exports = i
     },
-    897: function(t, e, n) {
+    901: function(t, e, n) {
         "use strict";
         function i(t, e) {
             if ("string" != typeof t)
@@ -18486,10 +18504,10 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             var n = t.toString().split("e"), i = n[0], a = n[1] || 0, o, s, u = Math.round(Number(i + "e" + (+a + e))).toString().split("e")[0], l = n[1] || 0;
             return Number(u + "e" + (+l - e))
         }
-        var u = n(559);
+        var u = n(563);
         t.exports.evaluate = i
     },
-    898: function(t, e, n) {
+    902: function(t, e, n) {
         "use strict";
         function i(el) {
             var t = el.getAttribute("name"), type;
@@ -18566,7 +18584,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
                 })
         }
     },
-    899: function(t, e, n) {
+    903: function(t, e, n) {
         "use strict";
         function i(t, e, n) {
             var i = t.find(".u-form-progress-step");
@@ -18604,7 +18622,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             }
         }
     },
-    900: function(t, e, n) {
+    904: function(t, e, n) {
         "use strict";
         var i;
         t.exports.update = function(form, t) {
@@ -18623,7 +18641,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             i.addClass("u-hidden"))
         }
     },
-    901: function(t, e, n) {
+    905: function(t, e, n) {
         "use strict";
         var FormFileType = n(212)
           , FormFileAccept = t.exports;
@@ -18638,7 +18656,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
             this.$dom = t
         }
         t.exports = CountdownCommon;
-        var CountdownAnimate = n(536);
+        var CountdownAnimate = n(541);
         CountdownCommon.prototype.getDate = function() {
             var date = this.$dom.attr("data-target-date");
             return date ? new Date(date) : new Date
